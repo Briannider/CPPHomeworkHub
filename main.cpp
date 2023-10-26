@@ -7,8 +7,11 @@ using namespace std;
 
 int main()
 {
+     
+
+    /* ----------------------------LECTURA DE ARCHIVOS------------------------------ 
     FILE *arch;
-    arch = fopen("Alumno.dat", "rb+");
+    arch = fopen("data/Alumno.dat", "rb+");
     char nombre[21];
 
     // LEER EL ARCHIVO
@@ -20,7 +23,31 @@ int main()
         cout << nombre << endl;
         cout << "------" << endl;
     }
+    */
 
-    // ESCRIBIR EL ARCHIVO
-           return 0;
+
+/*  EJERCICIO 1 : 
+
+Se tienen dos archivos “deposito1.dat” y “deposito2.dat” con los siguientes datos: 
+-nroArt(numérico) 
+-descripción (50 caracteres)
+-cantidad (numérico).
+Estos archivos se encuentran 
+ordenados por nroArt y los artículos no se repiten entre depósitos (cada depósito maneja sus 
+artículos). Generar un archivo “stock.dat”, consolidando los artículos de ambos depósitos.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+   return 0;
 }
