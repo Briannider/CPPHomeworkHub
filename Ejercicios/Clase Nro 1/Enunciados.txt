@@ -1,0 +1,27 @@
+### Ejercicio 1: Suma, multiplicacion y resta.
+Se ingresan 2 números, calcular la suma de ellos, la multiplicación y la resta. Considerando que esta 
+última operación tiene que dar >0.
+
+
+### Ejercicio 2: Promedio de notas.
+Se necesita obtener el promedio de un estudiante a partir de sus tres notas parciales, las mismas son 
+ingresadas por el usuario.
+
+### Ejercicio 3: Condiciones.
+Se desea saber si se ha formado “generala” (es decir, si los 5 dados muestran el mismo número) de 
+una sola tirada de 5 dados.
+
+### Ejercicio 4: Paridad y imparidad.
+Dado un número ingresado por el usuario determinar si el mismo es IMPAR.
+
+### Ejercicio 5: Geometria.
+Se necesita saber el tipo de un triángulo, ingresando las dimensiones de los lados por separado.
+
+### Ejercicio 6: Fracciones y divisiones.
+Dado un valor numérico entero que se ingresa por teclado, se pide informar:
+	• La quinta parte de dicho valor,
+	• el resto de la división por 5 
+	• la séptima parte de la quinta parte.
+
+### Ejercicio 7: Fechas.
+Dados un mes y el año al que corresponde, informar cuantos días tiene el mes.
