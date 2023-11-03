@@ -1,27 +1,39 @@
+#include <string>
+#include <string.h>
 #include <iostream>
-using std::cin;
-using std::cout;
 
-
-struct Nodo{
+struct Nodo
+{
     int info;
-    Nodo* sgte;
+    Nodo *sgte;
 };
 
-void encolar( Nodo* frte, Nodo* fin, int v){
-    Nodo* p = new Nodo();
-    p->info = v;
-    p->sgte = NULL;
+void encolar(Nodo *&frte, Nodo *&fin, int v)
+{
+    Nodo *nuevo = new Nodo();
+    nuevo->info = v;
+    nuevo->sgte = NULL;
 
-    if(frte == NULL){
-        frte = p;
-    }else{
-        fin = p;
+    if (frte == NULL)
+    {
+        frte = nuevo;
     }
+    else
+    {
+        fin->sgte = nuevo;
+    };
+    fin = nuevo;
 }
 
-void desencolar(){
-    
+int desencolar(Nodo *&frte, Nodo *&fin)
+{
+    int ret = frte->info;
+    Nodo *aux = frte;
+    frte = frte->sgte;
+    if (frte == NULL)
+    {
+        fin = NULL;
+    };
+    delete aux;
+    return ret;
 }
-
-
