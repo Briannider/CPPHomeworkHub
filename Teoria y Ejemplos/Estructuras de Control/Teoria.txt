@@ -109,7 +109,8 @@ Caso muy facil de que quede colgado en bucle infinito, es que nunca le sume a �
 Recorrió el bucle 6 veces, por lo que le sumo 6 veces 10, osea 60.
 
 for( )
-El for() es parecido al while, quizás un poco más complicado de llamar, pero cumple casi con las mismas propiedades aunque sirve más para recorrer vectores ya que lo que esté dentro del for es propio de él, actuando así como una función. Tiene un inicio, una condición y una post-condicion. Hagamos el mismo ejemplo que el de “Mientras un número sea menor a 6, sumale a otro numero 10.”
+El for() es parecido al while, quizás un poco más complicado de llamar, pero cumple casi con las mismas propiedades aunque sirve más para recorrer vectores ya que lo que esté dentro del for es propio de él, actuando así como una función. 
+Tiene un inicio, una condición y una post-condicion. Hagamos el mismo ejemplo que el de “Mientras un número sea menor a 6, sumale a otro numero 10.”
 
 
 
