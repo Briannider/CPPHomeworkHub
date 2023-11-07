@@ -1,6 +1,6 @@
 #include <iostream>
 #include "funciones.hpp"
-using namespace std; //El usar el espacio de nombres std hace que evites tener que usar el std::cout o std::cin utilizando solo cout y cin
+using namespace std; /* El usar el espacio de nombres std hace que evites tener que usar el std::cout o std::cin utilizando solo cout y cin */
 
 int main()
 {
