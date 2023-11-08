@@ -13,7 +13,7 @@ También se los puede representar con un 1 para True y un 0 para false.
 
 Llevándolo a código, así nos quedaría nuestro if: 
 
-#####################################################
+##########################################################################################################
 
 #include <iostream>
 
@@ -30,7 +30,7 @@ int main(){
 }
 
 
-#####################################################
+##########################################################################################################
 
 
 Si se cumple la condición, osea si la condición es True, realiza el “hace esto”, si no se cumple, realiza el “hace esto otro”.
@@ -38,7 +38,7 @@ Las condiciones pueden ser del estilo “si un número es mayor/menor/igual a ot
 Ejemplos:
 -Si un número es mayor a otro.
 
-#####################################################
+##########################################################################################################
 
 #include <iostream>
 
@@ -58,14 +58,14 @@ int a=3, b=1;
 }
 
 
-#####################################################
+##########################################################################################################
 
 
 Obviamente, 3 es mayor a 1, asique va a ir por la rama del True.
 
 -Si un número es distinto a cero. En otras palabras, si un número existe
 
-#####################################################
+##########################################################################################################
 
 #include <iostream>
 
@@ -85,7 +85,7 @@ int a=3, b=1;
 }
 
 
-#####################################################
+##########################################################################################################
 
 Véase que al poner simplemente “if(a)”, ya C++ interpreta que lo que queremos decir es “if(a==0)”
 
