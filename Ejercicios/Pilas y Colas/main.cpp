@@ -2,9 +2,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
-using std::cin;
-using std::cout;
-using std::endl;
+using namespace std;
 
 int main(){
 
@@ -19,6 +17,6 @@ int main(){
     while (fin != NULL)
     {
         cout << desencolar(frte, fin) << endl;
-    };
+    }
     return 0;
 }
