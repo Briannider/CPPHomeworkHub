@@ -3,49 +3,51 @@
 using namespace std;
 
 struct Nodo {
-	int info;
-	Nodo* sgte;	
+  int info;
+  Nodo* sgte;	
 };
 
 struct infoMenu{
-	char nombre[100];
-	float precio;
-	char descripcion[50];
+  char nombre[50];
+  float precio;
+  char descripcion[100];
 };
 
 struct NodoMenu{
-	infoMenu infoM;
-	NodoMenu* sgte;	
-};
-struct infoPedidos {
-	int cantidadPorciones;
-	char Descrip[50];
-	
-
-};
-struct 	NodoPedidos {
-	infoPedidos info;
-	NodoPedidos* sgte;
-	
-};
-struct 	NodoPedidosCola {
-	infoPedidos info;
-	NodoPedidos* ColaFin;
-	NodoPedidos* ColaFte;
-	
+  infoMenu infoM;
+  NodoMenu* sgte;	
 };
 
-struct InfoCliente {
-	char Nombre[50+1];
-	char Direccion [50+1];
+
+struct infoPedidos{
+  char menuSolicitado[50];
+  float precio;
+  int cantidadPorciones;
+  char cliente[50+1];
+};
+struct NodoPedidosSolicitados {
+  infoPedidos info;
+  NodoPedidosSolicitados* sgte;
+
+};
+struct NodoPedidosPendientes {
+  infoPedidos info;
+  NodoPedidosPendientes* sgte;
+};
+struct NodoPedidosCompletados{
+  infoPedidos info;
+  NodoPedidosCompletados* sgte;
+};
+struct infoCliente {
+  char Nombre[100];
+  char Direccion [50+1];
   int telefono;
-	NodoPedidos* pedidosAnt;
-	
+  NodoPedidosSolicitados* pedidosAnt;	
 };
 
 struct NodoCliente {
-	InfoCliente info;
-	NodoCliente* sgte;
+  infoCliente infoC;
+  NodoCliente* sgte;
 };
 
 #ifndef funciones
@@ -77,17 +79,60 @@ int pop(Nodo*& pila);
 //Colas
 void encolar(Nodo* &colafte, Nodo* &colafin, int v);
 int desencolar(Nodo* &colafte, Nodo* &colafin);
+
 //TP 2 CUATRI
-int AgregarMenu();
-int AgregarCliente();
-void MostrarMenu();
-void GestionDeMenu(NodoMenu*& Menu, FILE*arch);
-void OpcionesPrincipales(NodoMenu*& Menu,FILE*F);
-void GestionDeClientes(NodoMenu*& Menu,FILE*arch);
-void GestionDePedidos(NodoMenu*& Menu,FILE*arch);
-void Facturacion(NodoMenu*& Menu,FILE*arch);
+
+// INTERFAZ:
+void OpcionesPrincipales(NodoMenu*& Menu,NodoCliente*& Cliente, FILE*F);
+
+// MENU:
+void GestionDeMenu(NodoMenu*& Menu, FILE *F);
+void AgregarMenu(FILE * F);
 NodoMenu* buscar(NodoMenu* lista, infoMenu v);
+void agregarNodoMenu(NodoMenu *&lista, infoMenu x);
+void liberarLista(NodoMenu* lista);
+void modificarMenu(NodoMenu*& Menu, FILE *F);
+void MostrarMenu(infoMenu infoM, FILE *F);
 void eliminar(NodoMenu*& lista, infoMenu v);
-void agregarNodo(NodoMenu* &lista, infoMenu x);
-int eliminarMenu(NodoMenu*& Menu);
+void eliminarMenu(NodoMenu*& Menu, FILE *F);
+
+// CLIENTES:
+void GestionDeClientes(NodoCliente*& Cliente,FILE*F);
+void AgregarCliente(FILE * F);
+void MostrarCliente(FILE * F);
+NodoCliente* buscar(NodoCliente* lista, infoCliente v);
+void agregarNodoCliente(NodoCliente* &lista, infoCliente x);
+void liberarLista(NodoCliente* lista);
+void ActualizarCliente(NodoCliente* &Cliente, FILE *F);
+void eliminar(NodoCliente*& lista, infoCliente v);
+void eliminarCliente(NodoCliente*& Cliente,FILE * F);
+
+// PEDIDOS:
+void GestionDePedidos(NodoMenu*& Menu,NodoCliente*& Cliente, FILE*arch,NodoPedidosCompletados *&pedidoCompletado,NodoPedidosPendientes *&colafte,NodoPedidosPendientes *&colafin);
+void agregarNodo(NodoPedidosSolicitados* &lista, infoPedidos x);
+void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente, NodoPedidosPendientes *&colafte, NodoPedidosPendientes *&colafin);
+NodoCliente* buscarCliente(NodoCliente* lista, const char* nombre);
+NodoMenu* buscarMenu(NodoMenu* lista,  const char* nombre);
+void marcarPedidoCompletado(NodoPedidosPendientes *&colafte, NodoPedidosPendientes *&colafin,NodoPedidosCompletados*& pedidosCompletados);
+void push(NodoPedidosCompletados *&pila, infoPedidos pedido);
+infoPedidos pop(NodoPedidosCompletados *&pila);
+void encolarPedido(NodoPedidosPendientes*& colafte, NodoPedidosPendientes*& colafin, infoPedidos pedido);
+infoPedidos desencolarPedido(NodoPedidosPendientes*& ColaFte, NodoPedidosPendientes*& ColaFin);
+void mostrarPedidosPendientes(NodoPedidosPendientes *&colafte,NodoPedidosPendientes *&colafin);
+void mostrarPedidosCompletados(NodoPedidosCompletados *&pedidoCompletado);
+void agregarNodoCompletado(NodoPedidosCompletados *&lista, infoPedidos x);
+void Facturacion(FILE*arch,NodoPedidosCompletados *&pedidoCompletado);
+void FacturacionTotalClientes(FILE *F, NodoPedidosCompletados *&pedidoCompletado);
+void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado) ;
+
+
+
+
+
+
+
+
+
+
+
 #endif
