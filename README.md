@@ -44,7 +44,7 @@ Este repositorio está bajo la licencia [AFL-3.0]. Consulta el archivo [Academic
 
 ## Contacto
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros:
-- [braianniderhaus@gmail.com]
+- braianniderhaus@gmail.com
 
 ¡Esperamos que estos trabajos prácticos te ayuden a mejorar tus habilidades en C++! ¡Diviértete programando! 🚀
 
