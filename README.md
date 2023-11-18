@@ -11,7 +11,7 @@ Este repositorio alberga una colección de trabajos prácticos en el lenguaje de
 - **Instrucciones:** Pasos para completar el trabajo práctico.
 - **Ejemplos:** Ejemplos de uso o soluciones.
 
-### 📝 Trabajo Práctico 2: [Nombre del Trabajo Práctico]
+### 📝 Trabajo Práctico 2: Delivery
 - **Descripción:** Breve descripción del objetivo del trabajo práctico.
 - **Archivos:** Lista de archivos relevantes.
 - **Instrucciones:** Pasos para completar el trabajo práctico.
