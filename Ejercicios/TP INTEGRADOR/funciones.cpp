@@ -4,11 +4,15 @@
 #include <string>
 using namespace std;
 
-void agregar(int arr[], int n, int &len, int v) {
+void agregar(int arr[], int n, int &len, int v)
+{
 
-  if (len == n) {
+  if (len == n)
+  {
     cout << "El vector esta lleno" << endl;
-  } else {
+  }
+  else
+  {
     arr[len] = v;
     len++;
   }
@@ -16,35 +20,44 @@ void agregar(int arr[], int n, int &len, int v) {
   return;
 }
 
-void mostrar(int arr[], int len) {
+void mostrar(int arr[], int len)
+{
 
-  for (int i = 0; i < len; i++) {
+  for (int i = 0; i < len; i++)
+  {
     cout << arr[i] << endl;
   }
 
   return;
 }
 
-int buscar(int arr[], int len, int v) {
+int buscar(int arr[], int len, int v)
+{
   int pos;
   int i = 0;
 
-  while (i < len && arr[i] != v) {
+  while (i < len && arr[i] != v)
+  {
     i++;
   }
 
-  if (i == len) {
+  if (i == len)
+  {
     pos = -1;
-  } else {
+  }
+  else
+  {
     pos = i;
   }
 
   return pos;
 }
 
-void eliminar(int arr[], int &len, int pos) {
+void eliminar(int arr[], int &len, int pos)
+{
 
-  for (int i = pos; i < len - 1; i++) {
+  for (int i = pos; i < len - 1; i++)
+  {
     arr[i] = arr[i + 1];
   }
   len--;
@@ -52,9 +65,11 @@ void eliminar(int arr[], int &len, int pos) {
   return;
 }
 
-void insertar(int arr[], int &len, int v, int pos) {
+void insertar(int arr[], int &len, int v, int pos)
+{
 
-  for (int i = len - 1; i >= pos; i--) {
+  for (int i = len - 1; i >= pos; i--)
+  {
     arr[i + 1] = arr[i];
   }
 
@@ -64,10 +79,12 @@ void insertar(int arr[], int &len, int v, int pos) {
   return;
 }
 
-int insertarOrdenado(int arr[], int &len, int v) {
+int insertarOrdenado(int arr[], int &len, int v)
+{
   int i = 0;
 
-  while (i < len && arr[i] <= v) {
+  while (i < len && arr[i] <= v)
+  {
     i++;
   }
 
@@ -75,37 +92,47 @@ int insertarOrdenado(int arr[], int &len, int v) {
   return i;
 }
 
-int buscaEInserta(int arr[], int &len, int v, bool &enc) {
+int buscaEInserta(int arr[], int &len, int v, bool &enc)
+{
   int pos = buscar(arr, len, v);
 
-  if (pos == -1) { // no esta
+  if (pos == -1)
+  { // no esta
     enc = false;
     pos = insertarOrdenado(arr, len, v);
-  } else {
+  }
+  else
+  {
     enc = true;
   }
 
   return pos;
 }
 
-void inicializar(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
+void inicializar(int arr[], int n)
+{
+  for (int i = 0; i < n; i++)
+  {
     arr[i] = 0;
   }
   return;
 }
 
 // burbuja
-void burbujaAsc(int arr[], int len) {
+void burbujaAsc(int arr[], int len)
+{
   int temp;
   bool huboIntercambio = true;
 
-  for (int i = 0; i < len - 1 && huboIntercambio; i++) {
+  for (int i = 0; i < len - 1 && huboIntercambio; i++)
+  {
 
     huboIntercambio = false;
 
-    for (int j = 0; j < len - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
+    for (int j = 0; j < len - 1 - i; j++)
+    {
+      if (arr[j] > arr[j + 1])
+      {
         huboIntercambio = true;
         temp = arr[j];
         arr[j] = arr[j + 1];
@@ -116,27 +143,37 @@ void burbujaAsc(int arr[], int len) {
 }
 
 int busquedaBinaria(int arr[], int len,
-                    int v) { // el vector tiene que estar ordenado
+                    int v)
+{ // el vector tiene que estar ordenado
   int inicio = 0;
   int fin = len - 1;
   int medio = (inicio + fin) / 2;
   int pos;
 
-  while (inicio <= fin) {
-    if (arr[medio] == v) {
+  while (inicio <= fin)
+  {
+    if (arr[medio] == v)
+    {
       break;
-    } else if (v < arr[medio]) {
+    }
+    else if (v < arr[medio])
+    {
       fin = medio - 1;
-    } else { // v > arr[medio]
+    }
+    else
+    { // v > arr[medio]
       inicio = medio + 1;
     }
 
     medio = (inicio + fin) / 2;
   }
 
-  if (inicio > fin) {
+  if (inicio > fin)
+  {
     pos = -1;
-  } else {
+  }
+  else
+  {
     pos = medio;
   }
 
@@ -144,65 +181,82 @@ int busquedaBinaria(int arr[], int len,
 }
 
 // Listas
-void agregarNodoMenu(NodoMenu *&lista, infoMenu x) {
+void agregarNodoMenu(NodoMenu *&lista, infoMenu x)
+{
 
   NodoMenu *nuevo = new NodoMenu();
   nuevo->infoM = x;
   nuevo->sgte = NULL;
-  if (lista == NULL) {
+  if (lista == NULL)
+  {
     lista = nuevo;
-  } else {
+  }
+  else
+  {
     NodoMenu *aux = lista;
-    while (aux->sgte != NULL) {
+    while (aux->sgte != NULL)
+    {
       aux = aux->sgte;
     }
     aux->sgte = nuevo;
   }
 }
 
-void mostrar(Nodo *lista) {
-  while (lista != NULL) {
+void mostrar(Nodo *lista)
+{
+  while (lista != NULL)
+  {
     cout << lista->info << endl;
     lista = lista->sgte;
   }
 }
 
-void liberar(Nodo *&lista) {
+void liberar(Nodo *&lista)
+{
   Nodo *aux;
-  while (lista != NULL) {
+  while (lista != NULL)
+  {
     aux = lista;
     lista = lista->sgte;
     delete aux;
   }
 }
 
-Nodo *buscar(Nodo *lista, int v) {
+Nodo *buscar(Nodo *lista, int v)
+{
 
-  while (lista != NULL && lista->info != v) {
+  while (lista != NULL && lista->info != v)
+  {
     lista = lista->sgte;
   }
 
   return lista;
 }
 
-void eliminarMenu(Nodo *&lista, int v) {
+void eliminarMenu(Nodo *&lista, int v)
+{
   Nodo *aux = lista;
   Nodo *ant = NULL;
-  while (aux != NULL && aux->info != v) {
+  while (aux != NULL && aux->info != v)
+  {
     ant = aux;
     aux = aux->sgte;
   }
 
-  if (ant != NULL) {
+  if (ant != NULL)
+  {
     ant->sgte = aux->sgte;
-  } else {
+  }
+  else
+  {
     lista = aux->sgte;
   }
 
   delete aux;
 }
 
-int eliminarPrimerNodo(Nodo *&lista) {
+int eliminarPrimerNodo(Nodo *&lista)
+{
   int ret = lista->info;
 
   Nodo *aux = lista;
@@ -212,7 +266,8 @@ int eliminarPrimerNodo(Nodo *&lista) {
   return ret;
 }
 
-Nodo *insertarOrdenado(Nodo *&lista, int v) {
+Nodo *insertarOrdenado(Nodo *&lista, int v)
+{
   Nodo *nuevo = new Nodo();
   nuevo->info = v;
   nuevo->sgte = NULL;
@@ -220,14 +275,18 @@ Nodo *insertarOrdenado(Nodo *&lista, int v) {
   Nodo *aux = lista;
   Nodo *ant = NULL;
 
-  while (aux != NULL && aux->info <= v) {
+  while (aux != NULL && aux->info <= v)
+  {
     ant = aux;
     aux = aux->sgte;
   }
 
-  if (ant == NULL) {
+  if (ant == NULL)
+  {
     lista = nuevo;
-  } else { // entró al while
+  }
+  else
+  { // entró al while
     ant->sgte = nuevo;
   }
 
@@ -236,23 +295,29 @@ Nodo *insertarOrdenado(Nodo *&lista, int v) {
   return nuevo;
 }
 
-void ordenar(Nodo *&lista) {
+void ordenar(Nodo *&lista)
+{
   Nodo *listaAux = NULL;
   int v;
-  while (lista != NULL) {
+  while (lista != NULL)
+  {
     v = eliminarPrimerNodo(lista);
     insertarOrdenado(listaAux, v);
   }
   lista = listaAux;
 }
 
-Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc) {
+Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc)
+{
   Nodo *buscado = buscar(lista, v);
 
-  if (buscado == NULL) { // no esta
+  if (buscado == NULL)
+  { // no esta
     enc = false;
     buscado = insertarOrdenado(lista, v);
-  } else {
+  }
+  else
+  {
     enc = true;
   }
 
@@ -260,14 +325,16 @@ Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc) {
 }
 
 // pilas
-void push(Nodo *&pila, int v) {
+void push(Nodo *&pila, int v)
+{
   Nodo *nuevo = new Nodo();
   nuevo->info = v;
   nuevo->sgte = pila;
   pila = nuevo;
 }
 
-int pop(Nodo *&pila) {
+int pop(Nodo *&pila)
+{
   int ret = pila->info;
   Nodo *aux = pila;
   pila = aux->sgte;
@@ -276,25 +343,31 @@ int pop(Nodo *&pila) {
 }
 
 // Colas
-void encolar(Nodo *&colafte, Nodo *&colafin, int v) {
+void encolar(Nodo *&colafte, Nodo *&colafin, int v)
+{
   Nodo *nuevo = new Nodo();
   nuevo->info = v;
   nuevo->sgte = NULL;
 
-  if (colafte == NULL) {
+  if (colafte == NULL)
+  {
     colafte = nuevo;
-  } else {
+  }
+  else
+  {
     colafin->sgte = nuevo;
   }
 
   colafin = nuevo;
 }
 
-int desencolar(Nodo *&colafte, Nodo *&colafin) {
+int desencolar(Nodo *&colafte, Nodo *&colafin)
+{
   int ret = colafte->info;
   Nodo *aux = colafte;
   colafte = colafte->sgte;
-  if (colafte == NULL) {
+  if (colafte == NULL)
+  {
     colafin = NULL;
   }
   delete aux;
@@ -304,20 +377,23 @@ int desencolar(Nodo *&colafte, Nodo *&colafin) {
 // TP 2 CUATRI
 
 // INTERFAZ:
-void OpcionesPrincipales(NodoMenu *&Menu, NodoCliente *&Cliente, FILE *F) {
+void OpcionesPrincipales(NodoMenu *&Menu, NodoCliente *&Cliente, FILE *F)
+{
   int opcion = 0;
   NodoPedidosCompletados *pedidosCompletados = NULL;
   NodoPedidosPendientes *colafte = NULL;
   NodoPedidosPendientes *colafin = NULL;
 
-  do {
+  do
+  {
     cout << "Ingrese 1 para Gestion de menus" << endl;
     cout << "Ingrese 2 para Gestion de clientes " << endl;
     cout << "Ingrese 3 para Gestion de pedidos" << endl;
     cout << "Ingrese 4 para Facturacion" << endl;
     cout << "Ingrese 5 para salir" << endl;
     cin >> opcion;
-    switch (opcion) {
+    switch (opcion)
+    {
     case 1:
       cout << "Usted ha seleccionado Gestion de menus" << endl;
       GestionDeMenu(Menu, F);
@@ -346,17 +422,20 @@ void OpcionesPrincipales(NodoMenu *&Menu, NodoCliente *&Cliente, FILE *F) {
 // ------------------------------------------------------------ GESTION DE MENU:
 // ------------------------------------------------------------
 
-void GestionDeMenu(NodoMenu *&Menu, FILE *F) {
+void GestionDeMenu(NodoMenu *&Menu, FILE *F)
+{
   infoMenu reg;
   int opcion;
-  do {
+  do
+  {
     cout << "Ingrese 1 para cargar el menu" << endl;
     cout << "Ingrese 2 para mostrar el menu" << endl;
     cout << "Ingrese 3 para eliminar el menu" << endl;
     cout << "Ingrese 4 para modificar el menu " << endl;
     cout << "Ingrese 5 para salir" << endl;
     cin >> opcion;
-    switch (opcion) {
+    switch (opcion)
+    {
     case 1:
       cout << "Usted ha seleccionado cargar el menu" << endl;
       AgregarMenu(F);
@@ -383,7 +462,8 @@ void GestionDeMenu(NodoMenu *&Menu, FILE *F) {
 }
 
 // Agregar platillo al Menu
-void AgregarMenu(FILE *F) {
+void AgregarMenu(FILE *F)
+{
   infoMenu infoM;
   cout << "Ingrese nombre de plato" << endl;
   cin.ignore();
@@ -394,9 +474,12 @@ void AgregarMenu(FILE *F) {
   cin.ignore();
   cin.getline(infoM.descripcion, sizeof(infoM.descripcion));
   F = fopen("Menu.dat", "ab+");
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo " << endl;
-  } else {
+  }
+  else
+  {
     fwrite(&infoM, sizeof(infoMenu), 1, F);
     cout << "Pedido guardado en el archivo Menu.dat" << endl;
     fclose(F);
@@ -404,15 +487,20 @@ void AgregarMenu(FILE *F) {
 }
 
 // Muestra todos los platillos dentro de Menu.dat
-void MostrarMenu(infoMenu infoM, FILE *F) {
+void MostrarMenu(infoMenu infoM, FILE *F)
+{
   F = fopen("Menu.dat", "rb");
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     cout << "" << endl;
     cout << "Platillos en el menu: " << endl;
     cout << "" << endl;
-    while (fread(&infoM, sizeof(infoMenu), 1, F) == 1) {
+    while (fread(&infoM, sizeof(infoMenu), 1, F) == 1)
+    {
       cout << "------------------------------------------------" << endl;
       cout << "Nombre Plato: " << infoM.nombre << endl;
       cout << "Precio del plato: " << infoM.precio << endl;
@@ -425,10 +513,13 @@ void MostrarMenu(infoMenu infoM, FILE *F) {
 }
 
 // modificar platillo del menu
-NodoMenu *buscar(NodoMenu *lista, const char *nombre) {
+NodoMenu *buscar(NodoMenu *lista, const char *nombre)
+{
   NodoMenu *current = lista;
-  while (current != NULL) {
-    if (strcmp(current->infoM.nombre, nombre) == 0) {
+  while (current != NULL)
+  {
+    if (strcmp(current->infoM.nombre, nombre) == 0)
+    {
       return current; // Se encontró el plato
     }
     current = current->sgte;
@@ -439,16 +530,21 @@ NodoMenu *buscar(NodoMenu *lista, const char *nombre) {
 
 // Lista de platillos: Esta es utilizada para almacenar todos los platos dentro
 // del archivo y asi modificar el plato indicado
-void agregarNodo(NodoMenu *&lista, infoMenu x) {
+void agregarNodo(NodoMenu *&lista, infoMenu x)
+{
 
   NodoMenu *nuevo = new NodoMenu();
   nuevo->infoM = x;
   nuevo->sgte = NULL;
-  if (lista == NULL) {
+  if (lista == NULL)
+  {
     lista = nuevo;
-  } else {
+  }
+  else
+  {
     NodoMenu *aux = lista;
-    while (aux->sgte != NULL) {
+    while (aux->sgte != NULL)
+    {
       aux = aux->sgte;
     }
     aux->sgte = nuevo;
@@ -456,11 +552,13 @@ void agregarNodo(NodoMenu *&lista, infoMenu x) {
 }
 
 // Liberar lista de platillos
-void liberarLista(NodoMenu *lista) {
+void liberarLista(NodoMenu *lista)
+{
   NodoMenu *actual = lista;
   NodoMenu *siguiente;
 
-  while (actual != NULL) {
+  while (actual != NULL)
+  {
     siguiente = actual->sgte;
     delete actual; // Suponiendo que NodoMenu se crea con new
     actual = siguiente;
@@ -468,17 +566,22 @@ void liberarLista(NodoMenu *lista) {
 }
 
 // Rescribe el archivo Menu.dat con el platillo modificado
-void modificarMenu(NodoMenu *&Menu, FILE *F) {
+void modificarMenu(NodoMenu *&Menu, FILE *F)
+{
   // Abre el archivo en modo lectura
   F = fopen("Menu.dat", "rb");
   NodoMenu *lista = NULL;
   infoMenu infoM;
 
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     fread(&infoM, sizeof(infoMenu), 1, F);
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       agregarNodoMenu(lista, infoM);
       fread(&infoM, sizeof(infoMenu), 1, F);
     }
@@ -490,7 +593,8 @@ void modificarMenu(NodoMenu *&Menu, FILE *F) {
 
     NodoMenu *nodoAModificar = buscar(lista, platoAModificar);
 
-    if (nodoAModificar != NULL) {
+    if (nodoAModificar != NULL)
+    {
       cout << "Ingrese nuevo nombre del plato: ";
       cin >> nodoAModificar->infoM.nombre;
       cout << "Ingrese nuevo precio del plato: ";
@@ -503,12 +607,16 @@ void modificarMenu(NodoMenu *&Menu, FILE *F) {
       // Reabre el archivo en modo escritura (borrando el contenido anterior)
       F = fopen("Menu.dat", "wb");
 
-      if (F == NULL) {
+      if (F == NULL)
+      {
         cout << "Error al abrir el archivo" << endl;
-      } else {
+      }
+      else
+      {
         NodoMenu *actual = lista; // Utiliza la lista temporal
 
-        while (actual != NULL) {
+        while (actual != NULL)
+        {
           fwrite(&(actual->infoM), sizeof(infoMenu), 1, F);
           actual = actual->sgte;
         }
@@ -522,16 +630,20 @@ void modificarMenu(NodoMenu *&Menu, FILE *F) {
         // archivo
         liberarLista(Menu);
       }
-
-    } else {
+    }
+    else
+    {
       cout << "Plato no encontrado en el menu." << endl;
     }
   }
 }
-NodoMenu *buscarMenu(NodoMenu *lista, const char *nombre) {
+NodoMenu *buscarMenu(NodoMenu *lista, const char *nombre)
+{
   NodoMenu *current = lista;
-  while (current != NULL) {
-    if (strcmp(current->infoM.nombre, nombre) == 0) {
+  while (current != NULL)
+  {
+    if (strcmp(current->infoM.nombre, nombre) == 0)
+    {
       return current; // Se encontró el menú
     }
     current = current->sgte;
@@ -540,18 +652,23 @@ NodoMenu *buscarMenu(NodoMenu *lista, const char *nombre) {
 }
 // Complemento de la funcion "eliminarMenu()": Se encarga de crear una lista de
 // todos los platillos menos el plato eliminado
-void eliminar(NodoMenu *&lista, const char *nombre) {
+void eliminar(NodoMenu *&lista, const char *nombre)
+{
   NodoMenu *aux = lista;
   NodoMenu *ant = NULL;
 
-  while (aux != NULL && strcmp(aux->infoM.nombre, nombre) != 0) {
+  while (aux != NULL && strcmp(aux->infoM.nombre, nombre) != 0)
+  {
     ant = aux;
     aux = aux->sgte;
   }
 
-  if (ant != NULL) {
+  if (ant != NULL)
+  {
     ant->sgte = aux->sgte;
-  } else {
+  }
+  else
+  {
     lista = aux->sgte;
   }
 
@@ -560,16 +677,21 @@ void eliminar(NodoMenu *&lista, const char *nombre) {
 
 // Aca se reescribe el archivo con la lista de platillos de la funcion
 // eliminar()
-void eliminarMenu(NodoMenu *&Menu, FILE *F) {
+void eliminarMenu(NodoMenu *&Menu, FILE *F)
+{
   F = fopen("Menu.dat", "rb");
   fseek(F, 0, SEEK_SET);
   NodoMenu *listaMenu = NULL;
   infoMenu infoM;
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     fread(&infoM, sizeof(infoMenu), 1, F);
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       agregarNodoMenu(listaMenu, infoM);
       fread(&infoM, sizeof(infoMenu), 1, F);
     }
@@ -581,19 +703,22 @@ void eliminarMenu(NodoMenu *&Menu, FILE *F) {
 
   NodoMenu *nodoAEliminar = buscar(listaMenu, platoAEliminar);
 
-  if (nodoAEliminar != NULL) {
+  if (nodoAEliminar != NULL)
+  {
     eliminar(listaMenu, platoAEliminar);
     cout << "plato eliminado" << endl;
     // Reabre el archivo en modo escritura (borrando el contenido anterior)
-    FILE *F = fopen("Menu.dat", "wb");
+    F = fopen("Menu.dat", "wb");
 
-    if (F == NULL) {
+    if (F == NULL)
+    {
       cout << "Error al abrir el archivo" << endl;
     }
 
     NodoMenu *actual = listaMenu;
 
-    while (actual != NULL) {
+    while (actual != NULL)
+    {
       fwrite(&(actual->infoM), sizeof(infoMenu), 1, F);
       actual = actual->sgte;
     }
@@ -603,8 +728,9 @@ void eliminarMenu(NodoMenu *&Menu, FILE *F) {
 
     // Liberar la memoria de la lista después de usarla
     liberarLista(listaMenu);
-
-  } else {
+  }
+  else
+  {
     cout << "no se encontro el plato a eliminar" << endl;
   }
 }
@@ -612,17 +738,20 @@ void eliminarMenu(NodoMenu *&Menu, FILE *F) {
 // --------------------------------------------------------- GESTION DE
 // CLIENTES: ---------------------------------------------------------
 
-void GestionDeClientes(NodoCliente *&Cliente, FILE *F) {
+void GestionDeClientes(NodoCliente *&Cliente, FILE *F)
+{
   infoCliente reg;
   int opcion;
-  do {
+  do
+  {
     cout << "Ingrese 1 para agregar un cliente" << endl;
     cout << "Ingrese 2 para modificar informacion de un cliente " << endl;
     cout << "Ingrese 3 para eliminar un cliente" << endl;
     cout << "Ingrese 4 para mostrar el listado de clientes" << endl;
     cout << "Ingrese 5 para salir" << endl;
     cin >> opcion;
-    switch (opcion) {
+    switch (opcion)
+    {
     case 1:
       cout << "Usted ha seleccionado agregar un cliente" << endl;
       AgregarCliente(F);
@@ -649,7 +778,8 @@ void GestionDeClientes(NodoCliente *&Cliente, FILE *F) {
   } while (opcion != 5);
 }
 // agregar clientes
-void AgregarCliente(FILE *F) {
+void AgregarCliente(FILE *F)
+{
   infoCliente infoC;
   NodoPedidosSolicitados *pedidosAnt;
   cout << "Ingrese nombre del cliente" << endl;
@@ -669,11 +799,13 @@ void AgregarCliente(FILE *F) {
   cout << "Cliente guardado en el archivo Clientes.dat" << endl;
   F = fopen("Clientes.dat", "rb");
   fread(&infoC, sizeof(infoCliente), 1, F);
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
   }
 
-  while (!feof(F)) {
+  while (!feof(F))
+  {
     cout << "Nombre Cliente: " << infoC.Nombre << endl;
     cout << "Direccion del cliente: " << infoC.Direccion << endl;
     cout << "numero de telefono: " << infoC.telefono << endl;
@@ -682,10 +814,13 @@ void AgregarCliente(FILE *F) {
   }
 }
 
-NodoCliente *buscarCliente(NodoCliente *lista, const char *nombre) {
+NodoCliente *buscarCliente(NodoCliente *lista, const char *nombre)
+{
   NodoCliente *current2 = lista;
-  while (current2 != NULL) {
-    if (strcmp(current2->infoC.Nombre, nombre) == 0) {
+  while (current2 != NULL)
+  {
+    if (strcmp(current2->infoC.Nombre, nombre) == 0)
+    {
       return current2; // Se encontró el cliente
     }
     current2 = current2->sgte;
@@ -694,10 +829,13 @@ NodoCliente *buscarCliente(NodoCliente *lista, const char *nombre) {
 }
 
 NodoPedidosCompletados *buscarPedido(NodoPedidosCompletados *lista,
-                                     const char *nombre) {
+                                     const char *nombre)
+{
   NodoPedidosCompletados *current2 = lista;
-  while (current2 != NULL) {
-    if (strcmp(current2->info.cliente, nombre) == 0) {
+  while (current2 != NULL)
+  {
+    if (strcmp(current2->info.cliente, nombre) == 0)
+    {
       return current2; // Se encontró el cliente
     }
     current2 = current2->sgte;
@@ -705,24 +843,32 @@ NodoPedidosCompletados *buscarPedido(NodoPedidosCompletados *lista,
   return NULL;
 }
 
-void MostrarCliente(FILE *F) {
+void MostrarCliente(FILE *F)
+{
   infoCliente infoC;
   F = fopen("Clientes.dat", "rb");
 
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     cout << "listado del cliente: " << endl;
     fread(&infoC, sizeof(infoCliente), 1, F);
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       cout << "------------------------------------------------" << endl;
       cout << "Nombre: " << infoC.Nombre << endl;
       cout << "Dereccion: " << infoC.Direccion << endl;
       cout << "Telefono: " << infoC.telefono << endl;
-      if (infoC.pedidosAnt == NULL) {
+      if (infoC.pedidosAnt == NULL)
+      {
         cout << "Pedidos:"
              << " sin pedidos" << endl;
-      } else {
+      }
+      else
+      {
         cout << "tiene pedidos: "
              << endl; // => faltaria ver como pasamos los pedidos al agregarlos
                       // en la gestion de pedidos
@@ -737,10 +883,13 @@ void MostrarCliente(FILE *F) {
 }
 
 // actualizar los clientes
-NodoCliente *buscar(NodoCliente *lista, const char *nombre) {
+NodoCliente *buscar(NodoCliente *lista, const char *nombre)
+{
   NodoCliente *current2 = lista;
-  while (current2 != NULL) {
-    if (strcmp(current2->infoC.Nombre, nombre) == 0) {
+  while (current2 != NULL)
+  {
+    if (strcmp(current2->infoC.Nombre, nombre) == 0)
+    {
       return current2; // Se encontró el cliente
     }
     current2 = current2->sgte;
@@ -748,43 +897,53 @@ NodoCliente *buscar(NodoCliente *lista, const char *nombre) {
   return NULL;
 }
 
-void agregarNodoCliente(NodoCliente *&lista, infoCliente x) {
+void agregarNodoCliente(NodoCliente *&lista, infoCliente x)
+{
 
   NodoCliente *nuevo = new NodoCliente();
   nuevo->infoC = x;
   nuevo->sgte = NULL;
-  if (lista == NULL) {
+  if (lista == NULL)
+  {
     lista = nuevo;
-  } else {
+  }
+  else
+  {
     NodoCliente *aux = lista;
-    while (aux->sgte != NULL) {
+    while (aux->sgte != NULL)
+    {
       aux = aux->sgte;
     }
     aux->sgte = nuevo;
   }
 }
 
-void liberarLista(NodoCliente *lista) {
+void liberarLista(NodoCliente *lista)
+{
   NodoCliente *actual = lista;
   NodoCliente *siguiente;
 
-  while (actual != NULL) {
+  while (actual != NULL)
+  {
     siguiente = actual->sgte;
     delete actual; // Suponiendo que NodoMenu se crea con new
     actual = siguiente;
   }
 }
 
-void ActualizarCliente(NodoCliente *&Cliente, FILE *F) {
+void ActualizarCliente(NodoCliente *&Cliente, FILE *F)
+{
   // Abre el archivo en modo lectura
   F = fopen("Clientes.dat", "rb");
   NodoCliente *listaClientes = NULL;
   infoCliente infoC;
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
   }
   fread(&infoC, sizeof(infoCliente), 1, F);
-  while (!feof(F)) {
+  while (!feof(F))
+  {
     agregarNodoCliente(listaClientes, infoC);
     fread(&infoC, sizeof(infoCliente), 1, F);
   }
@@ -796,7 +955,8 @@ void ActualizarCliente(NodoCliente *&Cliente, FILE *F) {
 
   NodoCliente *nodoAActualizar = buscar(listaClientes, clienteAActualizar);
 
-  if (nodoAActualizar != NULL) {
+  if (nodoAActualizar != NULL)
+  {
     cout << "Ingrese nuevo nombre del cliente: ";
     cin >> nodoAActualizar->infoC.Nombre;
     cout << "Ingrese nueva direccion del Cliente: ";
@@ -809,13 +969,15 @@ void ActualizarCliente(NodoCliente *&Cliente, FILE *F) {
     // Reabre el archivo en modo escritura (borrando el contenido anterior)
     F = fopen("Clientes.dat", "wb");
 
-    if (F == NULL) {
+    if (F == NULL)
+    {
       cout << "Error al abrir el archivo" << endl;
     }
 
     NodoCliente *actual = listaClientes;
 
-    while (actual != NULL) {
+    while (actual != NULL)
+    {
       fwrite(&(actual->infoC), sizeof(infoCliente), 1, F);
       actual = actual->sgte;
     }
@@ -824,40 +986,52 @@ void ActualizarCliente(NodoCliente *&Cliente, FILE *F) {
     cout << "Cliente modificado y guardado en el archivo Cliente.dat" << endl;
     liberarLista(listaClientes);
     liberarLista(Cliente);
-  } else {
+  }
+  else
+  {
     cout << "Cliente no encontrado en el archivo" << endl;
   }
 }
 
 // eliminar el cliente
-void eliminar(NodoCliente *&lista, const char *nombre) {
+void eliminar(NodoCliente *&lista, const char *nombre)
+{
   NodoCliente *aux = lista;
   NodoCliente *ant = NULL;
 
-  while (aux != NULL && strcmp(aux->infoC.Nombre, nombre) != 0) {
+  while (aux != NULL && strcmp(aux->infoC.Nombre, nombre) != 0)
+  {
     ant = aux;
     aux = aux->sgte;
   }
 
-  if (ant != NULL) {
+  if (ant != NULL)
+  {
     ant->sgte = aux->sgte;
-  } else {
+  }
+  else
+  {
     lista = aux->sgte;
   }
 
   delete aux;
 }
 
-void eliminarCliente(NodoCliente *&Cliente, FILE *F) {
+void eliminarCliente(NodoCliente *&Cliente, FILE *F)
+{
   F = fopen("Clientes.dat", "rb+");
   fseek(F, 0, SEEK_SET);
   NodoCliente *listaCliente = NULL;
   infoCliente infoC;
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     fread(&infoC, sizeof(infoCliente), 1, F);
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       agregarNodoCliente(listaCliente, infoC);
       fread(&infoC, sizeof(infoCliente), 1, F);
     }
@@ -869,19 +1043,22 @@ void eliminarCliente(NodoCliente *&Cliente, FILE *F) {
 
   NodoCliente *nodoAEliminar = buscar(listaCliente, clienteAEliminar);
 
-  if (nodoAEliminar != NULL) {
+  if (nodoAEliminar != NULL)
+  {
     eliminar(listaCliente, clienteAEliminar);
     cout << "cliente eliminado" << endl;
     // Reabre el archivo en modo escritura (borrando el contenido anterior)
     F = fopen("Clientes.dat", "wb");
 
-    if (F == NULL) {
+    if (F == NULL)
+    {
       cout << "Error al abrir el archivo" << endl;
     }
 
     NodoCliente *actual = listaCliente;
 
-    while (actual != NULL) {
+    while (actual != NULL)
+    {
       fwrite(&(actual->infoC), sizeof(infoCliente), 1, F);
       actual = actual->sgte;
     }
@@ -891,8 +1068,9 @@ void eliminarCliente(NodoCliente *&Cliente, FILE *F) {
 
     // Liberar la memoria de la lista después de usarla
     liberarLista(listaCliente);
-
-  } else {
+  }
+  else
+  {
     cout << "no se encontro el cliente a eliminar" << endl;
   }
 }
@@ -901,17 +1079,20 @@ void eliminarCliente(NodoCliente *&Cliente, FILE *F) {
 // PEDIDOS: ----------------------------------------------------------
 
 void GestionDePedidos(NodoMenu *&Menu, NodoCliente *&Cliente, FILE *F,
-                      NodoPedidosCompletados *&pedidosCompletados,NodoPedidosPendientes *&colafte,NodoPedidosPendientes *&colafin) {
+                      NodoPedidosCompletados *&pedidosCompletados, NodoPedidosPendientes *&colafte, NodoPedidosPendientes *&colafin)
+{
 
   int opcion;
-  do {
+  do
+  {
     cout << "Ingrese 1 para registrar un nuevo pedido" << endl;
     cout << "Ingrese 2 para marcar pedido como completado" << endl;
     cout << "Ingrese 3 mostrar pedidos pendientes" << endl;
     cout << "Ingrese 4 mostrar pedidos completados" << endl;
     cout << "Ingrese 5 para salir" << endl;
     cin >> opcion;
-    switch (opcion) {
+    switch (opcion)
+    {
     case 1:
       registrarPedido(Menu, Cliente, colafte, colafin);
       break;
@@ -932,16 +1113,21 @@ void GestionDePedidos(NodoMenu *&Menu, NodoCliente *&Cliente, FILE *F,
   } while (opcion != 5);
 }
 
-void agregarNodoPedidos(NodoPedidosSolicitados *&lista, infoPedidos x) {
+void agregarNodoPedidos(NodoPedidosSolicitados *&lista, infoPedidos x)
+{
 
   NodoPedidosSolicitados *nuevo = new NodoPedidosSolicitados();
   nuevo->info = x;
   nuevo->sgte = NULL;
-  if (lista == NULL) {
+  if (lista == NULL)
+  {
     lista = nuevo;
-  } else {
+  }
+  else
+  {
     NodoPedidosSolicitados *aux = lista;
-    while (aux->sgte != NULL) {
+    while (aux->sgte != NULL)
+    {
       aux = aux->sgte;
     }
     aux->sgte = nuevo;
@@ -950,7 +1136,8 @@ void agregarNodoPedidos(NodoPedidosSolicitados *&lista, infoPedidos x) {
 
 void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
                      NodoPedidosPendientes *&colafte,
-                     NodoPedidosPendientes *&colafin) {
+                     NodoPedidosPendientes *&colafin)
+{
   // abrimos el archivo de menu
   FILE *F;
   infoMenu infoM;
@@ -958,12 +1145,16 @@ void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
   NodoMenu *listaMenu = NULL;
 
   F = fopen("Menu.dat", "rb");
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     fread(&infoM, sizeof(infoMenu), 1, F);
 
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       agregarNodoMenu(listaMenu, infoM);
       fread(&infoM, sizeof(infoMenu), 1, F);
     }
@@ -974,11 +1165,15 @@ void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
   F = fopen("Clientes.dat", "rb");
   NodoCliente *listaClientes = NULL;
   infoCliente infoCli;
-  if (F == NULL) {
+  if (F == NULL)
+  {
     cout << "Error al abrir el archivo" << endl;
-  } else {
+  }
+  else
+  {
     fread(&infoCli, sizeof(infoCliente), 1, F);
-    while (!feof(F)) {
+    while (!feof(F))
+    {
       agregarNodoCliente(listaClientes, infoCli);
       fread(&infoCli, sizeof(infoCliente), 1, F);
     }
@@ -990,7 +1185,8 @@ void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
   cin.ignore();
   cin.getline(nuevoPedido.menuSolicitado, sizeof(nuevoPedido.menuSolicitado));
   NodoMenu *nodoMenu = buscarMenu(listaMenu, nuevoPedido.menuSolicitado);
-  if (nodoMenu != NULL) {
+  if (nodoMenu != NULL)
+  {
     cout << "Ingrese la cantidad solicitada" << endl;
     cin >> nuevoPedido.cantidadPorciones;
     cout << "Ingrese el nombre del cliente" << endl;
@@ -999,14 +1195,19 @@ void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
     nuevoPedido.precio = nodoMenu->infoM.precio;
     NodoCliente *nodoCliente =
         buscarCliente(listaClientes, nuevoPedido.cliente);
-    if (nodoCliente != NULL) { // agregarlo encolar
+    if (nodoCliente != NULL)
+    { // agregarlo encolar
       encolarPedido(colafte, colafin, nuevoPedido);
       cout << "pedido registrado con exito" << endl;
-    } else {
+    }
+    else
+    {
       cout << "Cliente no registrado. Registre al cliente" << endl;
       AgregarCliente(F);
     }
-  } else {
+  }
+  else
+  {
     cout << "El platillo no existe" << endl;
   }
 }
@@ -1014,14 +1215,18 @@ void registrarPedido(NodoMenu *Menu, NodoCliente *Cliente,
 // Colocamos en una cola los pedidos que vayan ingresando del cliente, los
 // cuales una vez completados pasaran a la pila de pedidos solicitados.
 void encolarPedido(NodoPedidosPendientes *&colafte,
-                   NodoPedidosPendientes *&colafin, infoPedidos v) {
+                   NodoPedidosPendientes *&colafin, infoPedidos v)
+{
   NodoPedidosPendientes *nuevo = new NodoPedidosPendientes();
   nuevo->info = v;
   nuevo->sgte = NULL;
 
-  if (colafte == NULL) {
+  if (colafte == NULL)
+  {
     colafte = nuevo;
-  } else {
+  }
+  else
+  {
     colafin->sgte = nuevo;
   }
 
@@ -1029,18 +1234,21 @@ void encolarPedido(NodoPedidosPendientes *&colafte,
 }
 
 infoPedidos desencolarPedido(NodoPedidosPendientes *&colafte,
-                             NodoPedidosPendientes *&colafin) {
+                             NodoPedidosPendientes *&colafin)
+{
   infoPedidos ret = colafte->info;
   NodoPedidosPendientes *aux = colafte;
   colafte = colafte->sgte;
-  if (colafte == NULL) {
+  if (colafte == NULL)
+  {
     colafin = NULL;
   }
   delete aux;
   return ret;
 }
 
-void push(NodoPedidosCompletados *&pila, infoPedidos pedido) {
+void push(NodoPedidosCompletados *&pila, infoPedidos pedido)
+{
   NodoPedidosCompletados *nuevo = new NodoPedidosCompletados();
   nuevo->info = pedido;
   nuevo->sgte = pila;
@@ -1049,11 +1257,15 @@ void push(NodoPedidosCompletados *&pila, infoPedidos pedido) {
 
 void marcarPedidoCompletado(NodoPedidosPendientes *&colafte,
                             NodoPedidosPendientes *&colafin,
-                            NodoPedidosCompletados *&pedidosCompletados) {
-  if (colafte == NULL) {
+                            NodoPedidosCompletados *&pedidosCompletados)
+{
+  if (colafte == NULL)
+  {
     cout << "No hay pedidos pendientes para completar." << endl;
     return;
-  } else {
+  }
+  else
+  {
     infoPedidos ip = desencolarPedido(colafte, colafin);
     cout << "Pedido completado con exito: " << ip.menuSolicitado << endl;
     push(pedidosCompletados, ip);
@@ -1061,38 +1273,45 @@ void marcarPedidoCompletado(NodoPedidosPendientes *&colafte,
 }
 
 void mostrarPedidosPendientes(NodoPedidosPendientes *&colafte,
-                              NodoPedidosPendientes *&colafin) {
+                              NodoPedidosPendientes *&colafin)
+{
   NodoPedidosPendientes *auxfte = NULL;
   NodoPedidosPendientes *auxfin = NULL;
 
   infoPedidos ip;
-  while (colafte != NULL) {
+  while (colafte != NULL)
+  {
     ip = desencolarPedido(colafte, colafin);
     cout << ip.cliente << " " << ip.menuSolicitado << " " << endl;
     encolarPedido(auxfte, auxfin, ip);
   }
-  while (auxfte != NULL) {
+  while (auxfte != NULL)
+  {
     ip = desencolarPedido(auxfte, auxfin);
     encolarPedido(colafte, colafin, ip);
   }
 }
 
-void mostrarPedidosCompletados(NodoPedidosCompletados *&pedidoCompletado) {
+void mostrarPedidosCompletados(NodoPedidosCompletados *&pedidoCompletado)
+{
   infoPedidos ip;
   NodoPedidosCompletados *aux = NULL;
-  while (pedidoCompletado != NULL) {
+  while (pedidoCompletado != NULL)
+  {
     ip = pop(pedidoCompletado);
     cout << ip.cliente << ": " << ip.menuSolicitado << " " << endl;
     push(aux, ip);
   }
 
-  while (aux != NULL) {
+  while (aux != NULL)
+  {
     ip = pop(aux);
     push(pedidoCompletado, ip);
   }
 }
 
-infoPedidos pop(NodoPedidosCompletados *&pila) {
+infoPedidos pop(NodoPedidosCompletados *&pila)
+{
   infoPedidos ret = pila->info;
   NodoPedidosCompletados *aux = pila;
   pila = aux->sgte;
@@ -1103,15 +1322,18 @@ infoPedidos pop(NodoPedidosCompletados *&pila) {
 // ---------------------------------------------------------- GESTION DE
 // FACTURAS: ----------------------------------------------------------
 
-void Facturacion(FILE *F, NodoPedidosCompletados *&pedidoCompletado) {
+void Facturacion(FILE *F, NodoPedidosCompletados *&pedidoCompletado)
+{
 
   int opcion;
-  do {
+  do
+  {
     cout << "Ingrese 1 para el total de un cliente a especificar" << endl;
     cout << "Ingrese 2 para mostrar el total de facturacion del dia" << endl;
     cout << "Ingrese 3 para salir" << endl;
     cin >> opcion;
-    switch (opcion) {
+    switch (opcion)
+    {
     case 1:
       FacturacionPorCliente(F, pedidoCompletado);
       break;
@@ -1127,7 +1349,8 @@ void Facturacion(FILE *F, NodoPedidosCompletados *&pedidoCompletado) {
   } while (opcion != 3);
 }
 
-void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado) {
+void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado)
+{
   NodoPedidosCompletados *aux = NULL;
   infoPedidos ip;
   char cliente[50 + 1];
@@ -1139,9 +1362,11 @@ void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado) {
   cout << "Informe de Facturacion del cliente: " << cliente << endl;
   cout << "----------------------------------------- " << endl;
   // del mostrar completados
-  while (pedidoCompletado != NULL) {
+  while (pedidoCompletado != NULL)
+  {
     ip = pop(pedidoCompletado);
-    if (strcmp(ip.cliente, cliente) == 0) {
+    if (strcmp(ip.cliente, cliente) == 0)
+    {
       montoTotalCli += (ip.cantidadPorciones * ip.precio);
       cout << "Pedidos: " << ip.menuSolicitado << endl;
       cout << " Cant: " << ip.cantidadPorciones << endl;
@@ -1150,14 +1375,16 @@ void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado) {
     push(aux, ip);
   }
   cout << "Monto total: $" << montoTotalCli << endl;
-  while (aux != NULL) {
+  while (aux != NULL)
+  {
     ip = pop(aux);
     push(pedidoCompletado, ip);
   }
 }
 
 void FacturacionTotalClientes(FILE *F,
-                              NodoPedidosCompletados *&pedidoCompletado) {
+                              NodoPedidosCompletados *&pedidoCompletado)
+{
   NodoPedidosCompletados *aux = NULL;
   infoPedidos ip;
   int montoTotalCli = 0;
@@ -1165,26 +1392,29 @@ void FacturacionTotalClientes(FILE *F,
   cout << "----------------------------------------- " << endl;
   // del mostrar completados
 
-  while (pedidoCompletado != NULL) {
+  while (pedidoCompletado != NULL)
+  {
     ip = pop(pedidoCompletado);
     montoTotalCli += (ip.cantidadPorciones * ip.precio);
     cout << "----------------------------------------- " << endl;
     cout << "Cliente: " << ip.cliente << endl;
     cout << "----------------------------------------- " << endl;
-    cout << "Pedidos: " <<  ip.menuSolicitado << endl;
+    cout << "Pedidos: " << ip.menuSolicitado << endl;
     cout << " Cant: " << ip.cantidadPorciones << endl;
     cout << " $" << ip.precio << endl;
     cout << "----------------------------------------- " << endl;
     push(aux, ip);
   }
   cout << "Monto total: $" << montoTotalCli << endl;
-  while (aux != NULL) {
+  while (aux != NULL)
+  {
     ip = pop(aux);
     push(pedidoCompletado, ip);
   }
 }
 
-infoPedidos eliminarPrimerNodoPedidoCompletado(NodoPedidosCompletados *&lista) {
+infoPedidos eliminarPrimerNodoPedidoCompletado(NodoPedidosCompletados *&lista)
+{
   infoPedidos ret = lista->info;
 
   NodoPedidosCompletados *aux = lista;
@@ -1196,7 +1426,8 @@ infoPedidos eliminarPrimerNodoPedidoCompletado(NodoPedidosCompletados *&lista) {
 
 NodoPedidosCompletados *
 insertarOrdenadoPedidoCompletado(NodoPedidosCompletados *&lista,
-                                 infoPedidos v) {
+                                 infoPedidos v)
+{
   NodoPedidosCompletados *nuevo = new NodoPedidosCompletados();
   nuevo->info = v;
   nuevo->sgte = NULL;
@@ -1204,14 +1435,18 @@ insertarOrdenadoPedidoCompletado(NodoPedidosCompletados *&lista,
   NodoPedidosCompletados *aux = lista;
   NodoPedidosCompletados *ant = NULL;
 
-  while (aux != NULL && aux->info.cliente <= v.cliente) {
+  while (aux != NULL && aux->info.cliente <= v.cliente)
+  {
     ant = aux;
     aux = aux->sgte;
   }
 
-  if (ant == NULL) {
+  if (ant == NULL)
+  {
     lista = nuevo;
-  } else { // entró al while
+  }
+  else
+  { // entró al while
     ant->sgte = nuevo;
   }
 
@@ -1220,10 +1455,12 @@ insertarOrdenadoPedidoCompletado(NodoPedidosCompletados *&lista,
   return nuevo;
 }
 
-void ordenarPedidoCompletado(NodoPedidosCompletados *&lista) {
+void ordenarPedidoCompletado(NodoPedidosCompletados *&lista)
+{
   NodoPedidosCompletados *listaAux = NULL;
   infoPedidos v;
-  while (lista != NULL) {
+  while (lista != NULL)
+  {
     v = eliminarPrimerNodoPedidoCompletado(lista);
     insertarOrdenadoPedidoCompletado(listaAux, v);
   }
