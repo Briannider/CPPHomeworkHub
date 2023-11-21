@@ -124,15 +124,4 @@ void agregarNodoCompletado(NodoPedidosCompletados *&lista, infoPedidos x);
 void Facturacion(FILE*arch,NodoPedidosCompletados *&pedidoCompletado);
 void FacturacionTotalClientes(FILE *F, NodoPedidosCompletados *&pedidoCompletado);
 void FacturacionPorCliente(FILE *F, NodoPedidosCompletados *&pedidoCompletado) ;
-
-
-
-
-
-
-
-
-
-
-
 #endif
