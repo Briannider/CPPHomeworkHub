@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Reconocimiento Dactilar",
-      "program": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Reconocimiento Dactilar/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
