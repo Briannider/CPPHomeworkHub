@@ -38,16 +38,20 @@ int buscaEInserta(int arr[], int& len, int v, bool& enc);
 void inicializar(int arr[], int n);
 void burbujaAsc(int arr[],int len);
 int busquedaBinaria(int arr[],int len, int v); //el vector tiene que estar ordenado
-//Primer Parcial
+// * Primer Parcial
 
-//Primer Punto
+// *! Primer Punto
 /*int Proxbisiesto(int fecha);*/
-//Segundo Punto
+// *! Segundo Punto
 // void Apareo(int A[], int B[], int C[], int n);
-//Tercer Punto
+// *! Tercer Punto
 /*
 void burbujaDesc(regSuc arr[],int n); //Pequeñas modificaciones
 void MostrarMasVendidos(regSuc arr[]); //Pequeñas modificaciones
 void MaxRecaudacion(regSuc suc1[],regSuc suc2[], int n);
 */
+// *! Cuarto Punto
+void agregar(int arr[], int n, int& len, int v);
+void mostrar(int arr[], int len); 
+
 #endif

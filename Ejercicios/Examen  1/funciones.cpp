@@ -143,8 +143,8 @@ int busquedaBinaria(int arr[], int len,
   return pos;
 }
 
-// Primer Parcial
-// Primer Punto
+// * Primer Parcial
+// *! Primer Punto
 /*
 int Proxbisiesto(int fecha){
   fecha /= 10000;
@@ -155,7 +155,7 @@ int Proxbisiesto(int fecha){
 }
 */
 
-// Segundo Punto
+// *! Segundo Punto
 /*
 void Apareo(int A[], int B[], int C[], int n) {
   int len = 0;
@@ -166,7 +166,7 @@ void Apareo(int A[], int B[], int C[], int n) {
 }
 */
 
-// Tercer Punto
+// *! Tercer Punto
 /*
 void burbujaDesc(regSuc arr[], int n) {
   regSuc temp;
@@ -217,4 +217,15 @@ void MaxRecaudacion(regSuc suc1[], regSuc suc2[], int n){
   cout<<"Habiendo recaudado: S"<<recaudacion2<<endl;
   }
 }
+*/
+
+
+// *! Cuarto Punto 
+/*
+
+
+
+
+
+
 */
