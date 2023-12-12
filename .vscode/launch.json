@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Examen  1",
+      "program": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Examen  1/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

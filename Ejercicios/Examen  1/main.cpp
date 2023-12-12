@@ -2,7 +2,8 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+int main()
+{
   /* Primer Punto: Desarrolle una función que dado un año (AAAA) que se pasa por
   parámetro determine cuál será el próximo año bisiesto. Un año es bisiesto si
   es divisible entre cuatro y, no es divisible entre 100 o es divisible entre
@@ -71,7 +72,8 @@ int main() {
     contiene los siguientes datos: número de legajo, nombre de materia, código
     de curso y nota (número decimal). El nombre de la materia aparece solo 1 vez
     por estudiante. El archivo se encuentra ordenado por legajo. Se pide
-    calcular: a. Cuál es el promedio de cada estudiante e informar por pantalla.
+    calcular:
+    a. Cuál es el promedio de cada estudiante e informar por pantalla.
     b. Cuál es el estudiante que tiene mejor promedio (sólo hay 1 estudiante
     que cumple con este punto) e informar por pantalla.
     c. Cuál fue el estudiante que obtuvo la peor nota (puede haber más de 1
@@ -80,119 +82,30 @@ int main() {
     grabarlo en un archivo “aprobados.dat”, conteniendo el número de
     legajo, materia y código de curso
   */
-  
-  regNotas Materias[25][10];
-  int i = 0;
-  
-  regNotas legajo[100]{
-    {0, "Ingles", 10, 5},
-    {0, "Educacion", 10, 5},
-    {0, "Etica", 10, 5},
-    {0, "Biologia", 10, 5},
-    {0, "Fisica", 10, 5},
-    {0, "Geografia", 10, 5},
-    {0, "Quimica", 10, 5},
-    {0, "Historia", 10, 5},
-    {0, "Matematicas", 10, 5},
-    {0, "Artes", 10, 5},
-    {1, "Artes", 1, 6},   
-    {1, "Matematicas", 1, 6},   
-    {1, "Fisica", 1, 6},      
-    {1, "Quimica", 1, 6},     
-    {1, "Ingles", 1, 6},
-    {1, "Etica", 1, 6},       
-    {1, "Biologia", 1, 6},    
-    {1, "Educacion Fisica", 1, 6},
-    {1, "Geografia", 1, 6},
-    {1, "Historia", 1, 6},    
-    {2, "Etica", 2, 7},
-    {2, "Biologia", 2, 7},
-    {2, "Quimica", 2, 7},
-    {2, "Matematicas", 2, 7},
-    {2, "Fisica", 2, 7},
-    {2, "Ingles", 2, 7},
-    {2, "Geografia", 2, 7},
-    {2, "Historia", 2, 7},
-    {2, "Artes", 2, 7},
-    {2, "Educacion", 2, 7},
-    {3, "Matematicas", 3, 8},
-    {3, "Fisica", 3, 8},
-    {3, "Quimica", 3, 8},  
-    {3, "Ingles", 3, 8},
-    {3, "Etica", 3, 8},   
-    {3, "Biologia", 3, 8}, 
-    {3, "Geografia", 3, 8},
-    {3, "Historia", 3, 8},
-    {3, "Educacion", 3, 8},   
-    {3, "Artes", 3, 8},
-    {4, "Matematicas", 4, 9},
-    {4, "Fisica", 4, 9},
-    {4, "Quimica", 4, 9},
-    {4, "Ingles", 4, 9},
-    {4, "Etica", 4, 9},
-    {4, "Biologia", 4, 9},
-    {4, "Geografia", 4, 9},
-    {4, "Historia", 4, 9},
-    {4, "Artes", 4, 9},
-    {4, "Educacion", 4, 9},
-    {5, "Matematicas", 5, 10},  
-    {5, "Fisica", 5, 10},   
-    {5, "Quimica", 5, 10},  
-    {5, "Ingles", 5, 10}, 
-    {5, "Etica", 5, 10}, 
-    {5, "Geografia", 5, 10}, 
-    {5, "Historia", 5, 10},
-    {5, "Artes", 5, 10},     
-    {5, "Educacion", 5, 10},
-    {5, "Biologia", 5, 10},
-    {6, "Matematicas", 6, 9},
-    {6, "Fisica", 6, 9},
-    {6, "Quimica", 6, 9},
-    {6, "Ingles", 6, 9},
-    {6, "Etica", 6, 9},
-    {6, "Geografia", 6, 9},
-    {6, "Historia", 6, 9},
-    {6, "Artes", 6, 9},
-    {6, "Educacion", 6, 9},
-    {6, "Biologia", 6, 9},
-    {7, "Matematicas", 7, 8},   
-    {7, "Fisica", 7, 8},    
-    {7, "Quimica", 7, 8}, 
-    {7, "Ingles", 7, 8},    
-    {7, "Etica", 7, 8},     
-    {7, "Biologia", 7, 8},   
-    {7, "Geografia", 7, 8},   
-    {7, "Historia", 7, 8},   
-    {7, "Artes", 7, 8},
-    {7, "Educacion", 7, 8},  
-    {8, "Matematicas", 8, 7},
-    {8, "Fisica", 8, 7},
-    {8, "Quimica", 8, 7},
-    {8, "Ingles", 8, 7},
-    {8, "Etica", 8, 7},
-    {8, "Biologia", 8, 7},
-    {8, "Geografia", 8, 7},
-    {8, "Historia", 8, 7},
-    {8, "Artes", 8, 7},
-    {8, "Educacion", 8, 7},
-    {9, "Matematicas", 9, 6},   
-    {9, "Fisica", 9, 6},   
-    {9, "Quimica", 9, 6},    
-    {9, "Ingles", 9, 6},     
-    {9, "Etica", 9, 6},     
-    {9, "Biologia", 9, 6},  
-    {9, "Geografia", 9, 6}, 
-    {9, "Historia", 9, 6},   
-    {9, "Artes", 9, 6},     
-    {9, "Educacion", 9, 6}
-  };
-  
-  char matAct[30+1];
-  char matAnt[30+1];
-  do {
-  
-    
-  }while((strcmp(matAct,matAnt)==0) || i == 250);
 
+  regNotas legajo[100]{{0, "Ingles", 10, 5}, {0, "Educacion", 10, 5}, {0, "Etica", 10, 5}, {0, "Biologia", 10, 5}, {0, "Fisica", 10, 5}, {0, "Geografia", 10, 5}, {0, "Quimica", 10, 5}, {0, "Historia", 10, 5}, {0, "Matematicas", 10, 5}, {0, "Artes", 10, 5}, {1, "Artes", 1, 6}, {1, "Matematicas", 1, 6}, {1, "Fisica", 1, 6}, {1, "Quimica", 1, 6}, {1, "Ingles", 1, 6}, {1, "Etica", 1, 6}, {1, "Biologia", 1, 6}, {1, "Educacion Fisica", 1, 6}, {1, "Geografia", 1, 6}, {1, "Historia", 1, 6}, {2, "Etica", 2, 7}, {2, "Biologia", 2, 7}, {2, "Quimica", 2, 7}, {2, "Matematicas", 2, 7}, {2, "Fisica", 2, 7}, {2, "Ingles", 2, 7}, {2, "Geografia", 2, 7}, {2, "Historia", 2, 7}, {2, "Artes", 2, 7}, {2, "Educacion", 2, 7}, {3, "Matematicas", 3, 8}, {3, "Fisica", 3, 8}, {3, "Quimica", 3, 8}, {3, "Ingles", 3, 8}, {3, "Etica", 3, 8}, {3, "Biologia", 3, 8}, {3, "Geografia", 3, 8}, {3, "Historia", 3, 8}, {3, "Educacion", 3, 8}, {3, "Artes", 3, 8}, {4, "Matematicas", 4, 9}, {4, "Fisica", 4, 9}, {4, "Quimica", 4, 9}, {4, "Ingles", 4, 9}, {4, "Etica", 4, 9}, {4, "Biologia", 4, 9}, {4, "Geografia", 4, 9}, {4, "Historia", 4, 9}, {4, "Artes", 4, 9}, {4, "Educacion", 4, 9}, {5, "Matematicas", 5, 10}, {5, "Fisica", 5, 10}, {5, "Quimica", 5, 10}, {5, "Ingles", 5, 10}, {5, "Etica", 5, 10}, {5, "Geografia", 5, 10}, {5, "Historia", 5, 10}, {5, "Artes", 5, 10}, {5, "Educacion", 5, 10}, {5, "Biologia", 5, 10}, {6, "Matematicas", 6, 9}, {6, "Fisica", 6, 9}, {6, "Quimica", 6, 9}, {6, "Ingles", 6, 9}, {6, "Etica", 6, 9}, {6, "Geografia", 6, 9}, {6, "Historia", 6, 9}, {6, "Artes", 6, 9}, {6, "Educacion", 6, 9}, {6, "Biologia", 6, 9}, {7, "Matematicas", 7, 8}, {7, "Fisica", 7, 8}, {7, "Quimica", 7, 8}, {7, "Ingles", 7, 8}, {7, "Etica", 7, 8}, {7, "Biologia", 7, 8}, {7, "Geografia", 7, 8}, {7, "Historia", 7, 8}, {7, "Artes", 7, 8}, {7, "Educacion", 7, 8}, {8, "Matematicas", 8, 7}, {8, "Fisica", 8, 7}, {8, "Quimica", 8, 7}, {8, "Ingles", 8, 7}, {8, "Etica", 8, 7}, {8, "Biologia", 8, 7}, {8, "Geografia", 8, 7}, {8, "Historia", 8, 7}, {8, "Artes", 8, 7}, {8, "Educacion", 8, 7}, {9, "Matematicas", 9, 6}, {9, "Fisica", 9, 6}, {9, "Quimica", 9, 6}, {9, "Ingles", 9, 6}, {9, "Etica", 9, 6}, {9, "Biologia", 9, 6}, {9, "Geografia", 9, 6}, {9, "Historia", 9, 6}, {9, "Artes", 9, 6}, {9, "Educacion", 9, 6}};
+  regNotas Materias[10][10];
+  int i = 0, j = 0, len = 0;
+  int legajoant = legajo[len].numLegajo;
+
+  while (len != 100)
+  {
+    if (legajo[len].numLegajo == legajoant)
+    {
+      Materias[i][j] = legajo[len];
+      i++;
+      len++;
+    }
+    else
+    {
+      legajoant = legajo[len].numLegajo;
+      i = 0;
+      j++;
+    }
+  }
+
+  mostrarpromedio(Materias, 10, 10);
+  cout << "############################################################################" << endl;
+  mostrarmaxpromedio(Materias, 10, 10);
   return 0;
 }
