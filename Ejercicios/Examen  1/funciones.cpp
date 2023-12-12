@@ -4,11 +4,15 @@
 #include <string>
 using namespace std;
 
-void agregar(int arr[], int n, int &len, int v) {
+void agregar(int arr[], int n, int &len, int v)
+{
 
-  if (len == n) {
+  if (len == n)
+  {
     cout << "El vector esta lleno" << endl;
-  } else {
+  }
+  else
+  {
     arr[len] = v;
     len++;
   }
@@ -16,35 +20,44 @@ void agregar(int arr[], int n, int &len, int v) {
   return;
 }
 
-void mostrar(int arr[], int len) {
+void mostrar(int arr[], int len)
+{
 
-  for (int i = 0; i < len; i++) {
+  for (int i = 0; i < len; i++)
+  {
     cout << arr[i] << endl;
   }
 
   return;
 }
 
-int buscar(int arr[], int len, int v) {
+int buscar(int arr[], int len, int v)
+{
   int pos;
   int i = 0;
 
-  while (i < len && arr[i] != v) {
+  while (i < len && arr[i] != v)
+  {
     i++;
   }
 
-  if (i == len) {
+  if (i == len)
+  {
     pos = -1;
-  } else {
+  }
+  else
+  {
     pos = i;
   }
 
   return pos;
 }
 
-void eliminar(int arr[], int &len, int pos) {
+void eliminar(int arr[], int &len, int pos)
+{
 
-  for (int i = pos; i < len - 1; i++) {
+  for (int i = pos; i < len - 1; i++)
+  {
     arr[i] = arr[i + 1];
   }
   len--;
@@ -52,9 +65,11 @@ void eliminar(int arr[], int &len, int pos) {
   return;
 }
 
-void insertar(int arr[], int &len, int v, int pos) {
+void insertar(int arr[], int &len, int v, int pos)
+{
 
-  for (int i = len - 1; i >= pos; i--) {
+  for (int i = len - 1; i >= pos; i--)
+  {
     arr[i + 1] = arr[i];
   }
 
@@ -64,10 +79,12 @@ void insertar(int arr[], int &len, int v, int pos) {
   return;
 }
 
-int insertarOrdenado(int arr[], int &len, int v) {
+int insertarOrdenado(int arr[], int &len, int v)
+{
   int i = 0;
 
-  while (i < len && arr[i] <= v) {
+  while (i < len && arr[i] <= v)
+  {
     i++;
   }
 
@@ -75,37 +92,47 @@ int insertarOrdenado(int arr[], int &len, int v) {
   return i;
 }
 
-int buscaEInserta(int arr[], int &len, int v, bool &enc) {
+int buscaEInserta(int arr[], int &len, int v, bool &enc)
+{
   int pos = buscar(arr, len, v);
 
-  if (pos == -1) { // no esta
+  if (pos == -1)
+  { // no esta
     enc = false;
     pos = insertarOrdenado(arr, len, v);
-  } else {
+  }
+  else
+  {
     enc = true;
   }
 
   return pos;
 }
 
-void inicializar(int arr[], int n) {
-  for (int i = 0; i < n; i++) {
+void inicializar(int arr[], int n)
+{
+  for (int i = 0; i < n; i++)
+  {
     arr[i] = 0;
   }
   return;
 }
 
 // burbuja
-void burbujaAsc(int arr[], int len) {
+void burbujaAsc(int arr[], int len)
+{
   int temp;
   bool huboIntercambio = true;
 
-  for (int i = 0; i < len - 1 && huboIntercambio; i++) {
+  for (int i = 0; i < len - 1 && huboIntercambio; i++)
+  {
 
     huboIntercambio = false;
 
-    for (int j = 0; j < len - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
+    for (int j = 0; j < len - 1 - i; j++)
+    {
+      if (arr[j] > arr[j + 1])
+      {
         huboIntercambio = true;
         temp = arr[j];
         arr[j] = arr[j + 1];
@@ -116,27 +143,37 @@ void burbujaAsc(int arr[], int len) {
 }
 
 int busquedaBinaria(int arr[], int len,
-                    int v) { // el vector tiene que estar ordenado
+                    int v)
+{ // el vector tiene que estar ordenado
   int inicio = 0;
   int fin = len - 1;
   int medio = (inicio + fin) / 2;
   int pos;
 
-  while (inicio <= fin) {
-    if (arr[medio] == v) {
+  while (inicio <= fin)
+  {
+    if (arr[medio] == v)
+    {
       break;
-    } else if (v < arr[medio]) {
+    }
+    else if (v < arr[medio])
+    {
       fin = medio - 1;
-    } else { // v > arr[medio]
+    }
+    else
+    { // v > arr[medio]
       inicio = medio + 1;
     }
 
     medio = (inicio + fin) / 2;
   }
 
-  if (inicio > fin) {
+  if (inicio > fin)
+  {
     pos = -1;
-  } else {
+  }
+  else
+  {
     pos = medio;
   }
 
@@ -219,13 +256,49 @@ void MaxRecaudacion(regSuc suc1[], regSuc suc2[], int n){
 }
 */
 
+// *! Cuarto Punto
+void mostrarpromedio(regNotas Materias[][10], int filas, int columnas)
+{
+  float sum = 0;
+  int pos = 0;
+  for (int j = 0; j < columnas; j++)
+  {
+    for (int i = 0; i < filas; i++)
+    {
+      sum += Materias[i][j].nota;
+      pos = i;
+    }
+    cout << "El promedio del estudiante con numero de legajo: " << Materias[pos][j].numLegajo << endl;
+    cout << " es de:" << sum / 10 << endl;
+    sum = 0;
+  }
+}
 
-// *! Cuarto Punto 
-/*
+void mostrarmaxpromedio(regNotas Materias[][10], int filas, int columnas)
+{
+  int max = -1;
+  int posc = 0;
+  int posf = 0;
+  float sum = 0;
 
+  for (int j = 0; j < columnas; j++)
+  {
+    for (int i = 0; i < filas; i++)
+    {
+      sum += Materias[i][j].nota;
+      if (max < sum / 10)
+        max = sum/10;
+        posc = j;
+        posf = i;
+    }
+    sum = 0;
+  }
 
+  cout<<"El estudiante con el legajo:  "<<Materias[posf][posc].numLegajo;
+  cout<<" obtuvo el mayor promedio con:  "<<max<<endl;
 
+}
 
-
-
-*/
+void mostrarminpromedio(regNotas Materias[][10], int filas, int columnas)
+{
+}

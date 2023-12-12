@@ -579,21 +579,3 @@ NodoDedo *insertarOrdenado(NodoDedo *&lista, int v)
 
 	return nuevo;
 }
-
-
-void agregar(int matriz[25][10], int n, int &lenf, int &lenc, int v)
-{
-
-	if (lenf == n && lenc == n)
-	{
-		cout << "El vector esta lleno" << endl;
-	}
-	else
-	{
-		matriz[lenf][lenc] = v;
-		lenf++;
-		lenc++;
-	}
-
-	return;
-}
