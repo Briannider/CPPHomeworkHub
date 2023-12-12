@@ -287,16 +287,15 @@ void mostrarmaxpromedio(regNotas Materias[][10], int filas, int columnas)
     {
       sum += Materias[i][j].nota;
       if (max < sum / 10)
-        max = sum/10;
-        posc = j;
-        posf = i;
+        max = sum / 10;
+      posc = j;
+      posf = i;
     }
     sum = 0;
   }
 
-  cout<<"El estudiante con el legajo:  "<<Materias[posf][posc].numLegajo;
-  cout<<" obtuvo el mayor promedio con:  "<<max<<endl;
-
+  cout << "El estudiante con el legajo:  " << Materias[posf][posc].numLegajo;
+  cout << " obtuvo el mayor promedio con:  " << max << endl;
 }
 
 void mostrarminpromedio(regNotas Materias[][10], int filas, int columnas)

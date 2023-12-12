@@ -105,7 +105,7 @@ int main()
   }
 
   mostrarpromedio(Materias, 10, 10);
-  cout<<"############################################################################"<<endl;
-  mostrarmaxpromedio(Materias,10,10);
+  cout << "############################################################################" << endl;
+  mostrarmaxpromedio(Materias, 10, 10);
   return 0;
 }
