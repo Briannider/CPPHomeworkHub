@@ -57,4 +57,6 @@ void MaxRecaudacion(regSuc suc1[],regSuc suc2[], int n);
 void mostrarpromedio(regNotas Materias[][10], int filas, int columnas);
 void mostrarmaxpromedio(regNotas Materias[][10], int filas, int columnas);
 void mostrarminpromedio(regNotas Materias[][10], int filas, int columnas);
+void cargaraprobados(regNotas Materias[][10], int filas, int columnas);
+void mostraraprobados();
 #endif
