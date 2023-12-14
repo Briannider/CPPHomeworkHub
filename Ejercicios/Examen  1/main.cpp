@@ -107,5 +107,9 @@ int main()
   mostrarpromedio(Materias, 10, 10);
   cout << "############################################################################" << endl;
   mostrarmaxpromedio(Materias, 10, 10);
+  cout << "############################################################################" << endl;
+  mostrarminpromedio(Materias, 10, 10);
+  cargaraprobados(Materias, 10, 10);
+  mostraraprobados();
   return 0;
 }

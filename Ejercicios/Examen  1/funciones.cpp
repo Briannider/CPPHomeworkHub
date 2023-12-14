@@ -276,22 +276,29 @@ void mostrarpromedio(regNotas Materias[][10], int filas, int columnas)
 
 void mostrarmaxpromedio(regNotas Materias[][10], int filas, int columnas)
 {
-  int max = -1;
+  float max = -1;
   int posc = 0;
   int posf = 0;
-  float sum = 0;
 
   for (int j = 0; j < columnas; j++)
   {
+    float len = 0;
+    int legajoant = 0;
+    float promedio;
+    float sum = 0;
     for (int i = 0; i < filas; i++)
     {
       sum += Materias[i][j].nota;
-      if (max < sum / 10)
-        max = sum / 10;
-      posc = j;
-      posf = i;
+      legajoant = Materias[i][j].numLegajo;
+      len++;
     }
-    sum = 0;
+    promedio = sum / len;
+    if (max < promedio)
+    {
+      max = sum / len;
+      posc = j;
+      posf = legajoant;
+    }
   }
 
   cout << "El estudiante con el legajo:  " << Materias[posf][posc].numLegajo;
@@ -300,4 +307,73 @@ void mostrarmaxpromedio(regNotas Materias[][10], int filas, int columnas)
 
 void mostrarminpromedio(regNotas Materias[][10], int filas, int columnas)
 {
+  float min = 1000;
+  int posc = 0;
+  int posf = 0;
+
+  for (int j = 0; j < columnas; j++)
+  {
+    float len = 0;
+    int legajoant = 0;
+    float promedio;
+    float sum = 0;
+    for (int i = 0; i < filas; i++)
+    {
+      sum += Materias[i][j].nota;
+      legajoant = Materias[i][j].numLegajo;
+      len++;
+    }
+    promedio = sum / len;
+    if (min > promedio)
+    {
+      min = sum / len;
+      posc = j;
+      posf = legajoant;
+    }
+  }
+
+  cout << "El estudiante con el legajo:  " << Materias[posf][posc].numLegajo;
+  cout << " obtuvo el menor promedio con:  " << min << endl;
+}
+
+void cargaraprobados(regNotas Materias[][10], int filas, int columnas)
+{
+  int i, j = 0;
+  FILE *F = fopen("aprobados.dat", "wb");
+  regNotas Aprobados;
+
+  while (j < columnas)
+  {
+    i = 0;
+    while (i < filas)
+    {
+      if (Materias[i][j].nota >= 6)
+      {
+        Aprobados = Materias[i][j];
+        fwrite(&Aprobados, sizeof(regNotas), 1, F);
+      }
+      i++;
+    }
+    j++;
+  }
+  fclose(F);
+}
+
+void mostraraprobados()
+{
+  int legajoant;
+  regNotas Aprobados;
+  FILE *F = fopen("aprobados.dat", "rb");
+  fread(&Aprobados, sizeof(regNotas), 1, F);
+  legajoant = Aprobados.numLegajo;
+  while (!feof(F))
+  {
+    legajoant = Aprobados.numLegajo;
+    if (legajoant != Aprobados.numLegajo)
+      cout << "Estudiante aprobado con legajo: " << Aprobados.numLegajo << endl;
+    cout << "Materia: " << Aprobados.nombreMateria << endl;
+    cout << "Nota: " << Aprobados.nota << endl;
+    fread(&Aprobados, sizeof(regNotas), 1, F);
+  }
+  fclose(F);
 }
