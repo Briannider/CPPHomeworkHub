@@ -18,8 +18,6 @@ Este repositorio alberga una colección de trabajos prácticos en el lenguaje de
 - **Instrucciones:** Pasos para completar el trabajo práctico.
 - **Ejemplos:** Ejemplos de uso o soluciones.
 
-### [Continuar con otros trabajos prácticos]
-
 ## Requisitos
 -  Instalacion y configuracion de Visual Studio Code con [C++11 o superior.](https://code.visualstudio.com/docs/cpp/config-mingw)
 
