@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Recursividad",
-      "program": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Recursividad/build/Release/outRelease",
+      "cwd": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Pilas y Colas",
+      "program": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Pilas y Colas/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
