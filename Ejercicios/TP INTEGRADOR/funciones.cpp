@@ -181,11 +181,11 @@ int busquedaBinaria(int arr[], int len,
 }
 
 // Listas
-void agregarNodoMenu(NodoMenu *&lista, infoMenu x)
+void agregarNodo(Nodo *&lista, int x)
 {
 
-  NodoMenu *nuevo = new NodoMenu();
-  nuevo->infoM = x;
+  Nodo *nuevo = new Nodo();
+  nuevo->info = x;
   nuevo->sgte = NULL;
   if (lista == NULL)
   {
@@ -193,7 +193,7 @@ void agregarNodoMenu(NodoMenu *&lista, infoMenu x)
   }
   else
   {
-    NodoMenu *aux = lista;
+    Nodo *aux = lista;
     while (aux->sgte != NULL)
     {
       aux = aux->sgte;
@@ -233,7 +233,7 @@ Nodo *buscar(Nodo *lista, int v)
   return lista;
 }
 
-void eliminarMenu(Nodo *&lista, int v)
+void eliminar(Nodo *&lista, int v)
 {
   Nodo *aux = lista;
   Nodo *ant = NULL;
