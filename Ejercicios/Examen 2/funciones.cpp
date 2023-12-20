@@ -373,3 +373,20 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
   delete aux;
   return ret;
 }
+
+//! Examen 2
+
+//* Ejercicio 1
+/*
+Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin){
+  Nodo *lista = NULL;
+  while(pila != NULL ){
+        agregarNodo(lista, pop(pila));
+        while(colafrte != NULL){
+          agregarNodo(lista, desencolar(colafrte,colafin));
+        }
+  }
+  ordenar(lista);
+  return lista;
+}
+*/

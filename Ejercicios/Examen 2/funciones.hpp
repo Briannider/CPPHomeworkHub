@@ -42,5 +42,8 @@ int pop(Nodo *&pila);
 void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
 
+//*Examen
+//*Ejercicio 1
+// Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin);
 
 #endif
