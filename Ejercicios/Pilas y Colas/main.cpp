@@ -106,9 +106,9 @@ int main()
 			segundaParte = true;
 		} else {
 			if(segundaParte){
-				encolar(colafte,colafin,letra);
+				encolarchar(colafte,colafin,letra);
 			} else {
-				push(pila,letra);
+				pushchar(pila,letra);
 			}
 		}
 
@@ -132,14 +132,14 @@ int main()
 	cin >> apellido;
 
 	while (apellido != "*"){
-		push(pila,apellido);
+		pushstring(pila,apellido);
 
 		cout << "Ingresar un apellido, presione * para salir" << endl;
 		cin >> apellido;
 	}
 
 	while(pila != NULL){
-		cout << pop(pila) << endl;
+		cout << popstring(pila) << endl;
 	}
 	*/
 
@@ -283,4 +283,30 @@ int main()
 	encolar(colafte,colafin,est);
 	imprimirCola(colafte,colafin);
 	*/
+
+	//! Ejercicio Nro. 1 - Listas
+	NodoLibro *lista = NULL;
+	Libro newLibro;
+	int seguir;
+
+	cout << "Desea ingresar algun libro? (1 = Si || 0 = No)" << endl;
+	cin >> seguir;
+
+	while (seguir != 0)
+	{
+		cout << "Ingrese el titulo del libro: ";
+		cin.ignore();
+		getline(cin,newLibro.titulo);
+		cout << "Ingrese el anio de publicacion del libro: ";
+		cin >> newLibro.anio;
+
+		agregarNodoLibro(lista, newLibro);
+		cout << "Desea ingresar algun otro libro? (1 = Si || 0 = No)" << endl;
+		cin >> seguir;
+	}
+
+	mostrarLibros(lista);
+	liberarLista(lista);
+
+	//!======================================!//
 }

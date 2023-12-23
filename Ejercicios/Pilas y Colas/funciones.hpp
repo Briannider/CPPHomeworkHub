@@ -2,12 +2,24 @@
 #include <string.h>
 using namespace std;
 
+//! Ejercicio Nro. 1 - Listas
+struct Libro
+{
+	string titulo;
+	int anio;
+};
+struct NodoLibro
+{
+	Libro info;
+	NodoLibro *sgte;
+};
+
+//!======================================!//
 struct Nodo
 {
 	int info;
 	Nodo *sgte;
 };
-
 struct NodoChar
 {
 	char info;
@@ -62,28 +74,33 @@ int pop(Nodo *&pila);
 // Colas
 void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
-// Pilas- Ej 1
+// Listas - Ej 1
+void agregarNodoLibro(NodoLibro *&lista, Libro x);
+void mostrarLibros(NodoLibro *lista);
+void liberarLista(NodoLibro *&lista);
+/*
+// Pilas - Ej 1
 void colocarPrimero(Nodo *&pila, int v);
-// Pilas- Ej 2
+// Pilas - Ej 2
 char colocarTercero(Nodo *&pila, int v);
-// Pilas- Ej 3
+// Pilas - Ej 3
 char colocarXenPosicionY(Nodo *&pila, int x, int posY);
-// Pilas- Ej 4
+// Pilas - Ej 4
 void modificarValorXporValorY(Nodo *&pila, int x, int y);
-// Pilas- Ej 5
-void push(NodoChar *&pila, char v);
-char pop(NodoChar *&pila);
-void encolar(NodoChar *&colafte, NodoChar *&colafin, char v);
-char desencolar(NodoChar *&colafte, NodoChar *&colafin);
+// Pilas - Ej 5
+void pushchar(NodoChar *&pila, char v);
+char popchar(NodoChar *&pila);
+void encolarchar(NodoChar *&colafte, NodoChar *&colafin, char v);
+char desencolarchar(NodoChar *&colafte, NodoChar *&colafin);
 bool esInversa(NodoChar *&pila, NodoChar *&colafte, NodoChar *&colafin);
-// Pilas- Ej 6
-void push(NodoString *&pila, string v);
-string pop(NodoString *&pila);
-// Pila- Ej 7
+// Pilas - Ej 6
+void pushstring(NodoString *&pila, string v);
+string popstring(NodoString *&pila);
+// Pila - Ej 7
 void ordenarPila(Nodo *&pila);
 // Colas - Ej 1
-void encolar(NodoEstudiante *&colafte, NodoEstudiante *&colafin, infoEstudiante v);
-infoEstudiante desencolar(NodoEstudiante *&colafte, NodoEstudiante *&colafin);
+void encolarEst(NodoEstudiante *&colafte, NodoEstudiante *&colafin, infoEstudiante v);
+infoEstudiante desencolarEst(NodoEstudiante *&colafte, NodoEstudiante *&colafin);
 char eliminarDosNodos(NodoEstudiante *&colafte, NodoEstudiante *&colafin);
 // Colas - Ej 2
 int contarNodos(NodoEstudiante *&colafte, NodoEstudiante *&colafin);
@@ -92,7 +109,8 @@ void unionColas(NodoEstudiante *&colafteA, NodoEstudiante *&colafinA,
 				NodoEstudiante *&colafteB, NodoEstudiante *&colafinB,
 				NodoEstudiante *&colafteC, NodoEstudiante *&colafinC);
 // Colas - Ej 4
-void push(NodoEstudiante *&pila, infoEstudiante v);
-infoEstudiante pop(NodoEstudiante *&pila);
+void pushEst(NodoEstudiante *&pila, infoEstudiante v);
+infoEstudiante popEst(NodoEstudiante *&pila);
 void imprimirCola(NodoEstudiante *&colafte, NodoEstudiante *&colafin);
+*/
 #endif

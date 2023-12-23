@@ -324,6 +324,7 @@ Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc)
 }
 
 // pilas
+/*
 void push(Nodo *&pila, int v)
 {
 	Nodo *nuevo = new Nodo();
@@ -340,8 +341,10 @@ int pop(Nodo *&pila)
 	delete aux;
 	return ret;
 }
+*/
 
 // Colas
+/*
 void encolar(Nodo *&colafte, Nodo *&colafin, int v)
 {
 	Nodo *nuevo = new Nodo();
@@ -372,8 +375,10 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 	delete aux;
 	return ret;
 }
+*/
 
 // Pilas - Ej 1
+/*
 void colocarPrimero(Nodo *&pila, int v)
 {
 	Nodo *pilaAux = NULL;
@@ -489,7 +494,7 @@ void modificarValorXporValorY(Nodo *&pila, int x, int y)
 }
 
 // Pilas- Ej 5
-void push(NodoChar *&pila, char v)
+void pushchar(NodoChar *&pila, char v)
 {
 	NodoChar *nuevo = new NodoChar();
 	nuevo->info = v;
@@ -497,7 +502,7 @@ void push(NodoChar *&pila, char v)
 	pila = nuevo;
 }
 
-char pop(NodoChar *&pila)
+char popchar(NodoChar *&pila)
 {
 	char ret = pila->info;
 	NodoChar *aux = pila;
@@ -506,7 +511,7 @@ char pop(NodoChar *&pila)
 	return ret;
 }
 
-void encolar(NodoChar *&colafte, NodoChar *&colafin, char v)
+void encolarchar(NodoChar *&colafte, NodoChar *&colafin, char v)
 {
 	NodoChar *nuevo = new NodoChar();
 	nuevo->info = v;
@@ -524,7 +529,7 @@ void encolar(NodoChar *&colafte, NodoChar *&colafin, char v)
 	colafin = nuevo;
 }
 
-char desencolar(NodoChar *&colafte, NodoChar *&colafin)
+char desencolarchar(NodoChar *&colafte, NodoChar *&colafin)
 {
 	char ret = colafte->info;
 	NodoChar *aux = colafte;
@@ -542,7 +547,7 @@ bool esInversa(NodoChar *&pila, NodoChar *&colafte, NodoChar *&colafin)
 
 	while (pila != NULL && colafte != NULL)
 	{
-		if (pop(pila) != desencolar(colafte, colafin))
+		if (popchar(pila) != desencolarchar(colafte, colafin))
 		{
 			inversa = false;
 		}
@@ -557,7 +562,7 @@ bool esInversa(NodoChar *&pila, NodoChar *&colafte, NodoChar *&colafin)
 }
 
 // Pilas- Ej 6
-void push(NodoString *&pila, string v)
+void pushstring(NodoString *&pila, string v)
 {
 	NodoString *nuevo = new NodoString();
 	nuevo->info = v;
@@ -565,7 +570,7 @@ void push(NodoString *&pila, string v)
 	pila = nuevo;
 }
 
-string pop(NodoString *&pila)
+string popstring(NodoString *&pila)
 {
 	string ret = pila->info;
 	NodoString *aux = pila;
@@ -591,7 +596,7 @@ void ordenarPila(Nodo *&pila)
 }
 
 // Colas - Ej 1
-void encolar(NodoEstudiante *&colafte, NodoEstudiante *&colafin, infoEstudiante v)
+void encolarEst(NodoEstudiante *&colafte, NodoEstudiante *&colafin, infoEstudiante v)
 {
 	NodoEstudiante *nuevo = new NodoEstudiante();
 	nuevo->info = v;
@@ -608,7 +613,7 @@ void encolar(NodoEstudiante *&colafte, NodoEstudiante *&colafin, infoEstudiante 
 
 	colafin = nuevo;
 }
-infoEstudiante desencolar(NodoEstudiante *&colafte, NodoEstudiante *&colafin)
+infoEstudiante desencolarEst(NodoEstudiante *&colafte, NodoEstudiante *&colafin)
 {
 	infoEstudiante ret = colafte->info;
 	NodoEstudiante *aux = colafte;
@@ -628,7 +633,7 @@ char eliminarDosNodos(NodoEstudiante *&colafte, NodoEstudiante *&colafin)
 
 	while (contador < 2 && colafte != NULL)
 	{
-		desencolar(colafte, colafin);
+		desencolarEst(colafte, colafin);
 		contador++;
 	}
 
@@ -654,7 +659,7 @@ int contarNodos(NodoEstudiante *&colafte, NodoEstudiante *&colafin)
 
 	while (colafte != NULL)
 	{
-		encolar(colafteAUX, colafinAUX, desencolar(colafte, colafin));
+		encolarEst(colafteAUX, colafinAUX, desencolarEst(colafte, colafin));
 		contador++;
 	}
 
@@ -679,9 +684,9 @@ void unionColas(NodoEstudiante *&colafteA, NodoEstudiante *&colafinA,
 
 	while (colafteA != NULL)
 	{
-		est = desencolar(colafteA, colafinA);
-		encolar(colafteC, colafinC, est);
-		encolar(colafteAUXA, colafinAUXA, est);
+		est = desencolarEst(colafteA, colafinA);
+		encolarEst(colafteC, colafinC, est);
+		encolarEst(colafteAUXA, colafinAUXA, est);
 	}
 
 	colafteA = colafteAUXA;
@@ -689,9 +694,9 @@ void unionColas(NodoEstudiante *&colafteA, NodoEstudiante *&colafinA,
 
 	while (colafteB != NULL)
 	{
-		est = desencolar(colafteB, colafinB);
-		encolar(colafteC, colafinC, est);
-		encolar(colafteAUXB, colafinAUXB, est);
+		est = desencolarEst(colafteB, colafinB);
+		encolarEst(colafteC, colafinC, est);
+		encolarEst(colafteAUXB, colafinAUXB, est);
 	}
 
 	colafteB = colafteAUXB;
@@ -699,7 +704,7 @@ void unionColas(NodoEstudiante *&colafteA, NodoEstudiante *&colafinA,
 }
 
 // Colas - Ej 4
-void push(NodoEstudiante *&pila, infoEstudiante v)
+void pushEst(NodoEstudiante *&pila, infoEstudiante v)
 {
 	NodoEstudiante *nuevo = new NodoEstudiante();
 	nuevo->info = v;
@@ -707,7 +712,7 @@ void push(NodoEstudiante *&pila, infoEstudiante v)
 	pila = nuevo;
 }
 
-infoEstudiante pop(NodoEstudiante *&pila)
+infoEstudiante popEst(NodoEstudiante *&pila)
 {
 	infoEstudiante ret = pila->info;
 	NodoEstudiante *aux = pila;
@@ -725,24 +730,69 @@ void imprimirCola(NodoEstudiante *&colafte, NodoEstudiante *&colafin)
 
 	while (colafte != NULL)
 	{
-		est = desencolar(colafte, colafin);
-		encolar(colafteAUX, colafinAUX, est);
+		est = desencolarEst(colafte, colafin);
+		encolarEst(colafteAUX, colafinAUX, est);
 		if (cantNodos > 3)
 		{ // 100
 			cout << est.nya << endl;
 		}
 		else
 		{
-			push(pila, est);
+			pushEst(pila, est);
 		}
 	}
 
 	while (pila != NULL)
 	{
-		est = pop(pila);
+		est = popEst(pila);
 		cout << est.nya << endl;
 	}
 
 	colafte = colafteAUX;
 	colafin = colafinAUX;
 }
+*/
+
+//! Ejercicio Nro. 1 - Listas
+void agregarNodoLibro(NodoLibro *&lista, Libro x)
+{
+
+	NodoLibro *nuevo = new NodoLibro();
+	nuevo->info = x;
+	nuevo->sgte = NULL;
+	if (lista == NULL)
+	{
+		lista = nuevo;
+	}
+	else
+	{
+		NodoLibro *aux = lista;
+		while (aux->sgte != NULL)
+		{
+			aux = aux->sgte;
+		}
+		aux->sgte = nuevo;
+	}
+}
+
+void mostrarLibros(NodoLibro *lista)
+{
+	while (lista != NULL)
+	{
+		cout << lista->info.titulo << endl;
+		cout << lista->info.anio << endl;
+		lista = lista->sgte;
+	}
+}
+
+void liberarLista(NodoLibro *&lista)
+{
+	NodoLibro *aux;
+	while (lista != NULL)
+	{
+		aux = lista;
+		lista = lista->sgte;
+		delete aux;
+	}
+}
+//!======================================!//
