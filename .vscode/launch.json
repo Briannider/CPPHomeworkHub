@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Pilas y Colas",
-      "program": "c:/Users/Brian/Documents/Repositorios/C++/CPPHomeworkHub/Ejercicios/Pilas y Colas/build/Release/outRelease",
+      "cwd": ".",
+      "program": "build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
