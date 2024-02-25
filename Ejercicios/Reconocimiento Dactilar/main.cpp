@@ -4,7 +4,7 @@
 #include <string.h>
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
     FILE *arch = fopen("huellas.dat", "rb");
     NodoSospechoso *matriz[4][9];

@@ -68,12 +68,12 @@ int pop(Nodo *&pila);
 void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
 // Arboles
-/*
-void insertarNodoEnArbol(NodoArbol *&raiz, int valor);
-void preOrden(NodoArbol *raiz);
-void InOrden(NodoArbol *raiz);
-void postOrden(NodoArbol *raiz);
-*/
+
+// void insertarNodoEnArbol(NodoArbol *&raiz, int valor);
+// void preOrden(NodoArbol *raiz);
+// void InOrden(NodoArbol *raiz);
+// void postOrden(NodoArbol *raiz);
+
 // Lista Circular
 void agregarEnListaCircular(Nodo *&lista, int valor);
 void recorrerListaCircular(Nodo *lista);
