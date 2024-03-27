@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": ".",
-      "program": "build/Debug/outDebug",
+      "cwd": "c:/Repositorios/C++/CPPHomeworkHub/Teoria y Ejemplos/lambda",
+      "program": "c:/Repositorios/C++/CPPHomeworkHub/Teoria y Ejemplos/lambda/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
