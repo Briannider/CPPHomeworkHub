@@ -234,20 +234,35 @@ Nodo *buscar(Nodo *lista, int v)
 
 void eliminar(Nodo *&lista, int v)
 {
+	if (lista == NULL)
+	{
+		// La lista está vacía, no hay nada que eliminar
+		return;
+	}
+
 	Nodo *aux = lista;
 	Nodo *ant = NULL;
+
 	while (aux != NULL && aux->info != v)
 	{
 		ant = aux;
 		aux = aux->sgte;
 	}
 
+	if (aux == NULL)
+	{
+		// No se encontró el elemento en la lista
+		return;
+	}
+
 	if (ant != NULL)
 	{
+		// El elemento a eliminar no es el primero en la lista
 		ant->sgte = aux->sgte;
 	}
 	else
 	{
+		// El elemento a eliminar es el primero en la lista
 		lista = aux->sgte;
 	}
 
