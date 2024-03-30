@@ -2,37 +2,13 @@
 #include <string.h>
 using namespace std;
 
-
 //!======================================!//
 struct Nodo
 {
 	int info;
-	Nodo *sgte;
-};
-struct NodoChar
-{
-	char info;
-	NodoChar *sgte;
+	Nodo *sig;
 };
 
-struct NodoString
-{
-	string info;
-	NodoString *sgte;
-};
-
-struct infoEstudiante
-{
-	int legajo;
-	string nya;
-	int curso;
-};
-
-struct NodoEstudiante
-{
-	infoEstudiante info;
-	NodoEstudiante *sgte;
-};
 
 #ifndef funciones
 #define funciones

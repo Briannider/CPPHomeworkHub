@@ -185,7 +185,7 @@ void agregarNodo(Nodo *&lista, int x)
 
 	Nodo *nuevo = new Nodo();
 	nuevo->info = x;
-	nuevo->sgte = NULL;
+	nuevo->sig = NULL;
 	if (lista == NULL)
 	{
 		lista = nuevo;
@@ -193,11 +193,11 @@ void agregarNodo(Nodo *&lista, int x)
 	else
 	{
 		Nodo *aux = lista;
-		while (aux->sgte != NULL)
+		while (aux->sig != NULL)
 		{
-			aux = aux->sgte;
+			aux = aux->sig;
 		}
-		aux->sgte = nuevo;
+		aux->sig = nuevo;
 	}
 }
 
@@ -206,7 +206,7 @@ void mostrar(Nodo *lista)
 	while (lista != NULL)
 	{
 		cout << lista->info << endl;
-		lista = lista->sgte;
+		lista = lista->sig;
 	}
 }
 
@@ -216,7 +216,7 @@ void liberar(Nodo *&lista)
 	while (lista != NULL)
 	{
 		aux = lista;
-		lista = lista->sgte;
+		lista = lista->sig;
 		delete aux;
 	}
 }
@@ -226,7 +226,7 @@ Nodo *buscar(Nodo *lista, int v)
 
 	while (lista != NULL && lista->info != v)
 	{
-		lista = lista->sgte;
+		lista = lista->sig;
 	}
 
 	return lista;
@@ -246,7 +246,7 @@ void eliminar(Nodo *&lista, int v)
 	while (aux != NULL && aux->info != v)
 	{
 		ant = aux;
-		aux = aux->sgte;
+		aux = aux->sig;
 	}
 
 	if (aux == NULL)
@@ -258,12 +258,12 @@ void eliminar(Nodo *&lista, int v)
 	if (ant != NULL)
 	{
 		// El elemento a eliminar no es el primero en la lista
-		ant->sgte = aux->sgte;
+		ant->sig = aux->sig;
 	}
 	else
 	{
 		// El elemento a eliminar es el primero en la lista
-		lista = aux->sgte;
+		lista = aux->sig;
 	}
 
 	delete aux;
@@ -274,7 +274,7 @@ int eliminarPrimerNodo(Nodo *&lista)
 	int ret = lista->info;
 
 	Nodo *aux = lista;
-	lista = aux->sgte;
+	lista = aux->sig;
 	delete aux;
 
 	return ret;
@@ -284,7 +284,7 @@ Nodo *insertarOrdenado(Nodo *&lista, int v)
 {
 	Nodo *nuevo = new Nodo();
 	nuevo->info = v;
-	nuevo->sgte = NULL;
+	nuevo->sig = NULL;
 
 	Nodo *aux = lista;
 	Nodo *ant = NULL;
@@ -292,7 +292,7 @@ Nodo *insertarOrdenado(Nodo *&lista, int v)
 	while (aux != NULL && aux->info <= v)
 	{
 		ant = aux;
-		aux = aux->sgte;
+		aux = aux->sig;
 	}
 
 	if (ant == NULL)
@@ -301,10 +301,10 @@ Nodo *insertarOrdenado(Nodo *&lista, int v)
 	}
 	else
 	{ // entró al while
-		ant->sgte = nuevo;
+		ant->sig = nuevo;
 	}
 
-	nuevo->sgte = aux;
+	nuevo->sig = aux;
 
 	return nuevo;
 }
@@ -344,7 +344,7 @@ void push(Nodo *&pila, int v)
 {
 	Nodo *nuevo = new Nodo();
 	nuevo->info = v;
-	nuevo->sgte = pila;
+	nuevo->sig = pila;
 	pila = nuevo;
 }
 
@@ -352,7 +352,7 @@ int pop(Nodo *&pila)
 {
 	int ret = pila->info;
 	Nodo *aux = pila;
-	pila = aux->sgte;
+	pila = aux->sig;
 	delete aux;
 	return ret;
 }
@@ -363,7 +363,7 @@ void encolar(Nodo *&colafte, Nodo *&colafin, int v)
 {
 	Nodo *nuevo = new Nodo();
 	nuevo->info = v;
-	nuevo->sgte = NULL;
+	nuevo->sig = NULL;
 
 	if (colafte == NULL)
 	{
@@ -371,7 +371,7 @@ void encolar(Nodo *&colafte, Nodo *&colafin, int v)
 	}
 	else
 	{
-		colafin->sgte = nuevo;
+		colafin->sig = nuevo;
 	}
 
 	colafin = nuevo;
@@ -381,7 +381,7 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 {
 	int ret = colafte->info;
 	Nodo *aux = colafte;
-	colafte = colafte->sgte;
+	colafte = colafte->sig;
 	if (colafte == NULL)
 	{
 		colafin = NULL;

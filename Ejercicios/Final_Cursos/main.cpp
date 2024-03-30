@@ -4,10 +4,12 @@ using namespace std;
 
 int main()
 {
-	int a = 6;
-	int *ptra = &a;
-
-	cout << *ptra;
-
+	Nodo *lista = NULL;
+	
+	agregarNodo(lista, 3);
+	agregarNodo(lista, 7);
+	agregarNodo(lista, 6);
+	agregarNodo(lista, 4);
+	mostrar(lista);
 	return 0;
 }
