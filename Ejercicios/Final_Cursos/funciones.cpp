@@ -30,7 +30,7 @@ void mostrar(int arr[], int len)
 
 	return;
 }
-
+/*
 int buscar(int arr[], int len, int v)
 {
 	int pos;
@@ -53,6 +53,7 @@ int buscar(int arr[], int len, int v)
 	return pos;
 }
 
+*/
 void eliminar(int arr[], int &len, int pos)
 {
 
@@ -221,6 +222,7 @@ void liberar(Nodo *&lista)
 	}
 }
 
+/*
 Nodo *buscar(Nodo *lista, int v)
 {
 
@@ -231,6 +233,7 @@ Nodo *buscar(Nodo *lista, int v)
 
 	return lista;
 }
+*/
 
 void eliminar(Nodo *&lista, int v)
 {
@@ -320,7 +323,7 @@ void ordenar(Nodo *&lista)
 	}
 	lista = listaAux;
 }
-
+/*
 Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc)
 {
 	Nodo *buscado = buscar(lista, v);
@@ -337,6 +340,7 @@ Nodo *buscaEInsertaOrdenado(Nodo *&lista, int v, bool &enc)
 
 	return buscado;
 }
+*/
 
 // pilas
 
@@ -388,4 +392,39 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 	}
 	delete aux;
 	return ret;
+}
+
+//! Examen Final - Criterio de Promocion!//
+cursos *buscar(cursos *lista, int v)
+{
+
+	while (lista != NULL && lista->id != v)
+	{
+		lista = lista->sig;
+	}
+
+	return lista;
+}
+// void agregarNota(cursos curso, unsigned idCurso, unsigned idEstudiante, unsigned parcial, unsigned nota)
+// {
+// 	curso.
+// }
+
+// que lee de un archivo registros con el id del curso, el id del estudiante, el parcial (1, 2, 3, ó 4), y la nota
+void ProcesarNovedades(FILE *arch, cursos curso)
+{
+	regCursos aux;
+	cursos curso;
+	arch = fopen("novdedades.dat", "rb");
+	if (arch == NULL)
+	{
+		cout << "Error al abrir el archivo" << endl;
+		return;
+	}
+	fread(&aux, sizeof(aux), 1, arch);
+	while (!feof(arch))
+	{
+
+		fread(&curso, sizeof(curso), 1, arch);
+	}
 }

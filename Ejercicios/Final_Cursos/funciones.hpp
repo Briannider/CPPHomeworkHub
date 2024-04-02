@@ -9,13 +9,45 @@ struct Nodo
 	Nodo *sig;
 };
 
+//! Examen Final - Criterio de Promocion!//
+
+struct evaluacion
+{
+	unsigned nota;
+	evaluacion *sig;
+};
+struct estudiante
+{
+	unsigned id;
+	evaluacion notas[4];
+	estudiante *sig;
+};
+
+struct cursos
+{
+	unsigned id;
+	unsigned promocionados;
+	unsigned regularizados;
+	unsigned recursantes;
+	cursos *sig;
+	estudiante estudiantes;
+};
+
+struct regCursos
+{
+	unsigned idCurso;
+	unsigned idEstudiante;
+	unsigned parcial;
+	unsigned nota;
+};
+
 
 #ifndef funciones
 #define funciones
 
 void agregar(int arr[], int n, int &len, int v);
 void mostrar(int arr[], int len);
-int buscar(int arr[], int len, int v);
+// int buscar(int arr[], int len, int v);
 void eliminar(int arr[], int &len, int pos);
 void insertar(int arr[], int &len, int v, int pos);
 int insertarOrdenado(int arr[], int &len, int v);
@@ -27,7 +59,7 @@ int busquedaBinaria(int arr[], int len, int v); // el vector tiene que estar ord
 void agregarNodo(Nodo *&lista, int x);
 void mostrar(Nodo *lista);
 void liberar(Nodo *&lista);
-Nodo *buscar(Nodo *lista, int v);
+// Nodo *buscar(Nodo *lista, int v);
 void eliminar(Nodo *&lista, int v);
 int eliminarPrimerNodo(Nodo *&lista);
 Nodo *insertarOrdenado(Nodo *&lista, int v);
@@ -39,5 +71,8 @@ int pop(Nodo *&pila);
 // Colas
 void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
+
+//! Examen Final - Criterio de Promocion!//
+void ProcesarNovedades(FILE * arch,cursos curso);
 
 #endif
