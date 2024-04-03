@@ -23,24 +23,23 @@ struct estudiante
 	estudiante *sig;
 };
 
-struct cursos
+struct curso
 {
 	unsigned id;
 	unsigned promocionados;
 	unsigned regularizados;
 	unsigned recursantes;
-	cursos *sig;
+	curso *sig;
 	estudiante estudiantes;
 };
 
-struct regCursos
+struct regCurso
 {
 	unsigned idCurso;
 	unsigned idEstudiante;
 	unsigned parcial;
 	unsigned nota;
 };
-
 
 #ifndef funciones
 #define funciones
@@ -73,6 +72,7 @@ void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
 
 //! Examen Final - Criterio de Promocion!//
-void ProcesarNovedades(FILE * arch,cursos curso);
+void agregarCurso(curso *&cursos, regCurso auxcurso);
+void ProcesarNovedades(FILE *arch, curso *cursos);
 
 #endif

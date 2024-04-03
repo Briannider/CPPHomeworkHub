@@ -395,36 +395,47 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 }
 
 //! Examen Final - Criterio de Promocion!//
-cursos *buscar(cursos *lista, int v)
+void agregarCurso(curso *&cursos, regCurso auxcurso)
 {
 
-	while (lista != NULL && lista->id != v)
-	{
-		lista = lista->sig;
-	}
+	curso *nuevo = new curso();
+	nuevo->estudiantes.id = auxcurso.idEstudiante;
+	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
+	nuevo->estudiantes.id = auxcurso.idEstudiante;
 
-	return lista;
+	nuevo->sig = NULL;
+	if (lista == NULL)
+	{
+		lista = nuevo;
+	}
+	else
+	{
+		Nodo *aux = lista;
+		while (aux->sig != NULL)
+		{
+			aux = aux->sig;
+		}
+		aux->sig = nuevo;
+	}
 }
-// void agregarNota(cursos curso, unsigned idCurso, unsigned idEstudiante, unsigned parcial, unsigned nota)
-// {
-// 	curso.
-// }
 
 // que lee de un archivo registros con el id del curso, el id del estudiante, el parcial (1, 2, 3, ó 4), y la nota
-void ProcesarNovedades(FILE *arch, cursos curso)
+void ProcesarNovedades(FILE *arch, curso *cursos)
 {
-	regCursos aux;
-	cursos curso;
+	regCurso aux;
+	cursos = NULL;
+
 	arch = fopen("novdedades.dat", "rb");
 	if (arch == NULL)
 	{
 		cout << "Error al abrir el archivo" << endl;
 		return;
 	}
+
 	fread(&aux, sizeof(aux), 1, arch);
 	while (!feof(arch))
 	{
-
-		fread(&curso, sizeof(curso), 1, arch);
+		agregarCurso(cursos, aux);
+		fread(&aux, sizeof(aux), 1, arch);
 	}
 }
