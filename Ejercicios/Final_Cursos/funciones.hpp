@@ -29,8 +29,8 @@ struct curso
 	unsigned promocionados;
 	unsigned regularizados;
 	unsigned recursantes;
-	curso *sig;
 	estudiante estudiantes;
+	curso *sig;
 };
 
 struct regCurso

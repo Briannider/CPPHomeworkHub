@@ -398,19 +398,19 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 void agregarCurso(curso *&cursos, regCurso auxcurso)
 {
 
-	curso *nuevo = new curso();
-	nuevo->estudiantes.id = auxcurso.idEstudiante;
+	curso *nuevo = new curso(); 
+	nuevo->estudiantes.id = auxcurso.idEstudiante; //* Aca deberia buscar el id dentro de la lista hasta que fuera igual o añadirlo
 	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
 	nuevo->estudiantes.id = auxcurso.idEstudiante;
 
 	nuevo->sig = NULL;
-	if (lista == NULL)
+	if (cursos == NULL)
 	{
-		lista = nuevo;
+		cursos = nuevo;
 	}
 	else
 	{
-		Nodo *aux = lista;
+		curso *aux = cursos;
 		while (aux->sig != NULL)
 		{
 			aux = aux->sig;
