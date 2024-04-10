@@ -395,6 +395,36 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 }
 
 //! Examen Final - Criterio de Promocion!//
+curso *insertarOrdenado(curso *&cursos, regCurso auxcurso)
+{
+	curso *nuevo = new curso();
+	nuevo->estudiantes.id = auxcurso.idEstudiante; //* Aca deberia buscar el id dentro de la lista hasta que fuera igual o añadirlo
+	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
+	nuevo->estudiantes.id = auxcurso.idEstudiante;
+
+	curso *aux = cursos;
+	curso *ant = NULL;
+
+	while (aux != NULL && aux->id <= auxcurso.idEstudiante)
+	{
+		ant = aux;
+		aux = aux->sig;
+	}
+
+	if (ant == NULL)
+	{
+		cursos = nuevo;
+	}
+	else
+	{ // entró al while
+		ant->sig = nuevo;
+	}
+
+	nuevo->sig = aux;
+
+	return nuevo;
+}
+
 void agregarCurso(curso *&cursos, regCurso auxcurso)
 {
 
@@ -402,7 +432,6 @@ void agregarCurso(curso *&cursos, regCurso auxcurso)
 	nuevo->estudiantes.id = auxcurso.idEstudiante; //* Aca deberia buscar el id dentro de la lista hasta que fuera igual o añadirlo
 	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
 	nuevo->estudiantes.id = auxcurso.idEstudiante;
-
 	nuevo->sig = NULL;
 	if (cursos == NULL)
 	{
