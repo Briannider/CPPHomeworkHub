@@ -30,7 +30,7 @@ void mostrar(int arr[], int len)
 
 	return;
 }
-/*
+
 int buscar(int arr[], int len, int v)
 {
 	int pos;
@@ -53,7 +53,8 @@ int buscar(int arr[], int len, int v)
 	return pos;
 }
 
-*/
+
+
 void eliminar(int arr[], int &len, int pos)
 {
 
