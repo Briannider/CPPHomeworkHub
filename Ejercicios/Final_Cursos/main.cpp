@@ -4,18 +4,10 @@ using namespace std;
 
 int main()
 {
+
 	regCurso archData;
 	curso *cursos;
 	FILE *arch;
-	//! Creamos el file con datos para procesar
-	arch = fopen("datos.dat", "wb");
-	archData.idCurso = 1;
-	archData.idEstudiante = 1;
-	archData.nota = 7;
-	archData.parcial = 2;
-	//! Creamos los cursos
-	fwrite(&archData, sizeof(archData), 1, arch);
-	fclose(arch);
 
 	int opcion = -1;
 	do
@@ -24,11 +16,20 @@ int main()
 		cout << "2. Agregar estudiante" << endl;
 		cout << "3. Agregar nota" << endl;
 		cout << "4. Mostrar cursos" << endl;
-
+		cout << "0. Salir" << endl;
 		cin >> opcion;
 		switch (opcion)
 		{
 		case 1:
+			//! Creamos el file con datos para procesar
+			arch = fopen("novedades.dat", "ab");
+			archData.idCurso = 1;
+			archData.idEstudiante = 1;
+			archData.nota = 7;
+			archData.parcial = 2;
+			fwrite(&archData, sizeof(archData), 1, arch);
+			fclose(arch);
+			//! Creamos los cursos
 			ProcesarNovedades(arch, cursos);
 			break;
 

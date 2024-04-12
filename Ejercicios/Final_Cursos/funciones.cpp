@@ -53,8 +53,6 @@ int buscar(int arr[], int len, int v)
 	return pos;
 }
 
-
-
 void eliminar(int arr[], int &len, int pos)
 {
 
@@ -223,7 +221,6 @@ void liberar(Nodo *&lista)
 	}
 }
 
-/*
 Nodo *buscar(Nodo *lista, int v)
 {
 
@@ -234,7 +231,6 @@ Nodo *buscar(Nodo *lista, int v)
 
 	return lista;
 }
-*/
 
 void eliminar(Nodo *&lista, int v)
 {
@@ -396,66 +392,27 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 }
 
 //! Examen Final - Criterio de Promocion!//
-curso *insertarOrdenado(curso *&cursos, regCurso auxcurso)
+curso *buscar(curso *cursos, int v)
 {
-	curso *nuevo = new curso();
-	nuevo->estudiantes.id = auxcurso.idEstudiante; //* Aca deberia buscar el id dentro de la lista hasta que fuera igual o añadirlo
-	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
-	nuevo->estudiantes.id = auxcurso.idEstudiante;
 
-	curso *aux = cursos;
-	curso *ant = NULL;
-
-	while (aux != NULL && aux->id <= auxcurso.idEstudiante)
+	while (cursos != NULL && cursos->id != v)
 	{
-		ant = aux;
-		aux = aux->sig;
+		cursos = cursos->sig;
 	}
 
-	if (ant == NULL)
-	{
-		cursos = nuevo;
-	}
-	else
-	{ // entró al while
-		ant->sig = nuevo;
-	}
-
-	nuevo->sig = aux;
-
-	return nuevo;
+	return cursos;
 }
 
-void agregarCurso(curso *&cursos, regCurso auxcurso)
+void agregarNota(curso *&cursos, int idCurso, int idEst, int parcial, int nota)
 {
-
-	curso *nuevo = new curso(); 
-	nuevo->estudiantes.id = auxcurso.idEstudiante; //* Aca deberia buscar el id dentro de la lista hasta que fuera igual o añadirlo
-	nuevo->estudiantes.notas[auxcurso.parcial].nota = auxcurso.nota;
-	nuevo->estudiantes.id = auxcurso.idEstudiante;
-	nuevo->sig = NULL;
-	if (cursos == NULL)
-	{
-		cursos = nuevo;
-	}
-	else
-	{
-		curso *aux = cursos;
-		while (aux->sig != NULL)
-		{
-			aux = aux->sig;
-		}
-		aux->sig = nuevo;
-	}
 }
 
 // que lee de un archivo registros con el id del curso, el id del estudiante, el parcial (1, 2, 3, ó 4), y la nota
-void ProcesarNovedades(FILE *arch, curso *cursos)
+void ProcesarNovedades(FILE *arch, curso *&cursos)
 {
 	regCurso aux;
-	cursos = NULL;
 
-	arch = fopen("novdedades.dat", "rb");
+	arch = fopen("novedades.dat", "rb");
 	if (arch == NULL)
 	{
 		cout << "Error al abrir el archivo" << endl;
@@ -465,7 +422,28 @@ void ProcesarNovedades(FILE *arch, curso *cursos)
 	fread(&aux, sizeof(aux), 1, arch);
 	while (!feof(arch))
 	{
-		agregarCurso(cursos, aux);
-		fread(&aux, sizeof(aux), 1, arch);
+		curso *nuevo = new curso();
+		nuevo->id = aux.idCurso;
+		nuevo->estudiantes.id = aux.idEstudiante;
+		while (!feof(arch) && aux.idCurso == nuevo->id)
+		{
+			if (cursos == NULL)
+			{
+				cursos = nuevo;
+			}
+			else
+			{
+				curso *aux = cursos;
+				while (aux->sig != NULL)
+				{
+					aux = aux->sig;
+				}
+				aux->sig = nuevo;
+			}
+			curso *nuevo = new curso();
+			nuevo->id = aux.idCurso;
+			nuevo->estudiantes.id = aux.idEstudiante;
+			fread(&aux, sizeof(aux), 1, arch);
+		}
 	}
 }
