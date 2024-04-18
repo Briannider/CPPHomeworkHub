@@ -11,34 +11,41 @@ struct Nodo
 
 //! Examen Final - Criterio de Promocion!//
 
-struct evaluacion
-{
-	unsigned nota;
-	evaluacion *sig;
-};
-struct estudiante
-{
-	unsigned id;
-	evaluacion notas[4];
-	estudiante *sig;
+//Final PromociÃ³n
+//Archivo
+struct novedad {
+	int idCurso;
+	int idEstudiante;
+	int nroEvaluacion;
+	int nota;
 };
 
-struct curso
-{
-	unsigned id;
-	unsigned promocionados;
-	unsigned regularizados;
-	unsigned recursantes;
-	estudiante estudiantes;
-	curso *sig;
+struct NodoNota {
+	int info;
+	NodoNota* sgte;
 };
 
-struct regCurso
-{
-	unsigned idCurso;
-	unsigned idEstudiante;
-	unsigned parcial;
-	unsigned nota;
+struct infoEstudiante {
+	int idEstudiante;
+	NodoNota* notas[4];
+};
+
+struct NodoEstudiante {
+	infoEstudiante info;
+	NodoEstudiante* sgte;
+};
+
+struct infoCurso {
+	int idCurso;
+	int promocionados;
+	int regularizados;
+	int recursantes;
+    NodoEstudiante* estudiantes;
+};
+
+struct NodoCurso {
+	infoCurso info;
+	NodoCurso* sgte;
 };
 
 #ifndef funciones
@@ -72,7 +79,15 @@ void encolar(Nodo *&colafte, Nodo *&colafin, int v);
 int desencolar(Nodo *&colafte, Nodo *&colafin);
 
 //! Examen Final - Criterio de Promocion!//
-void agregarCurso(curso *&cursos, regCurso auxcurso);
-void ProcesarNovedades(FILE *arch, curso *cursos);
-
+void procesarNovedades(string nombreArchivo, NodoCurso* &cursos);
+void agregarNota(NodoCurso* &cursos,int idCurso,int idEstudiante,int nroEvaluacion,int nota);
+NodoCurso* buscaEInsertaOrdenado(NodoCurso*& lista, infoCurso v, bool& enc);
+NodoCurso* buscar(NodoCurso* lista, infoCurso v);
+NodoCurso* insertarOrdenado(NodoCurso*& lista, infoCurso v);
+NodoEstudiante* buscaEInsertaOrdenado(NodoEstudiante*& lista, infoEstudiante v, bool& enc);
+NodoEstudiante* buscar(NodoEstudiante* lista, infoEstudiante v);
+NodoEstudiante* insertarOrdenado(NodoEstudiante*& lista, infoEstudiante v);
+void agregarNodo(NodoNota* &lista, int x);
+void calcularEstadisiticas(NodoCurso* &cursos);
+int getEstado(NodoNota* notas[]);
 #endif

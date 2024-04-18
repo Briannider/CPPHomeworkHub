@@ -392,58 +392,261 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 }
 
 //! Examen Final - Criterio de Promocion!//
-curso *buscar(curso *cursos, int v)
+// Final PromociÃ³n
+void agregarNodo(NodoNota *&lista, int x)
 {
 
-	while (cursos != NULL && cursos->id != v)
+	NodoNota *nuevo = new NodoNota();
+	nuevo->info = x;
+	nuevo->sgte = NULL;
+	if (lista == NULL)
 	{
-		cursos = cursos->sig;
+		lista = nuevo;
+	}
+	else
+	{
+		NodoNota *aux = lista;
+		while (aux->sgte != NULL)
+		{
+			aux = aux->sgte;
+		}
+		aux->sgte = nuevo;
+	}
+};
+NodoEstudiante *insertarOrdenado(NodoEstudiante *&lista, infoEstudiante v)
+{
+	NodoEstudiante *nuevo = new NodoEstudiante();
+	nuevo->info = v;
+	nuevo->sgte = NULL;
+
+	NodoEstudiante *aux = lista;
+	NodoEstudiante *ant = NULL;
+
+	while (aux != NULL && aux->info.idEstudiante <= v.idEstudiante)
+	{
+		ant = aux;
+		aux = aux->sgte;
 	}
 
-	return cursos;
-}
-
-void agregarNota(curso *&cursos, int idCurso, int idEst, int parcial, int nota)
-{
-}
-
-// que lee de un archivo registros con el id del curso, el id del estudiante, el parcial (1, 2, 3, ó 4), y la nota
-void ProcesarNovedades(FILE *arch, curso *&cursos)
-{
-	regCurso aux;
-
-	arch = fopen("novedades.dat", "rb");
-	if (arch == NULL)
+	if (ant == NULL)
 	{
-		cout << "Error al abrir el archivo" << endl;
-		return;
+		lista = nuevo;
+	}
+	else
+	{ // entrÃ³ al while
+		ant->sgte = nuevo;
 	}
 
-	fread(&aux, sizeof(aux), 1, arch);
+	nuevo->sgte = aux;
+
+	return nuevo;
+}
+NodoEstudiante *buscar(NodoEstudiante *lista, infoEstudiante v)
+{
+
+	while (lista != NULL && lista->info.idEstudiante != v.idEstudiante)
+	{
+		lista = lista->sgte;
+	}
+
+	return lista;
+}
+NodoEstudiante *buscaEInsertaOrdenado(NodoEstudiante *&lista, infoEstudiante v, bool &enc)
+{
+	NodoEstudiante *buscado = buscar(lista, v);
+
+	if (buscado == NULL)
+	{ // no esta
+		enc = false;
+		buscado = insertarOrdenado(lista, v);
+	}
+	else
+	{
+		enc = true;
+	}
+
+	return buscado;
+};
+
+NodoCurso *insertarOrdenado(NodoCurso *&lista, infoCurso v)
+{
+	NodoCurso *nuevo = new NodoCurso();
+	nuevo->info = v;
+	nuevo->sgte = NULL;
+
+	NodoCurso *aux = lista;
+	NodoCurso *ant = NULL;
+
+	while (aux != NULL && aux->info.idCurso <= v.idCurso)
+	{
+		ant = aux;
+		aux = aux->sgte;
+	}
+
+	if (ant == NULL)
+	{
+		lista = nuevo;
+	}
+	else
+	{ // entrÃ³ al while
+		ant->sgte = nuevo;
+	}
+
+	nuevo->sgte = aux;
+
+	return nuevo;
+}
+NodoCurso *buscar(NodoCurso *lista, infoCurso v)
+{
+
+	while (lista != NULL && lista->info.idCurso != v.idCurso)
+	{
+		lista = lista->sgte;
+	}
+
+	return lista;
+}
+NodoCurso *buscaEInsertaOrdenado(NodoCurso *&lista, infoCurso v, bool &enc)
+{
+	NodoCurso *buscado = buscar(lista, v);
+
+	if (buscado == NULL)
+	{ // no esta
+		enc = false;
+		buscado = insertarOrdenado(lista, v);
+	}
+	else
+	{
+		enc = true;
+	}
+
+	return buscado;
+};
+
+void agregarNota(NodoCurso *&cursos, int idCurso, int idEstudiante, int nroEvaluacion, int nota)
+{
+	bool enc;
+	infoCurso ic;
+	ic.idCurso = idCurso;
+	ic.promocionados = 0;
+	ic.recursantes = 0;
+	ic.regularizados = 0;
+	ic.estudiantes = NULL;
+
+	NodoCurso *cursoBuscado = buscaEInsertaOrdenado(cursos, ic, enc);
+
+	infoEstudiante ie;
+	ie.idEstudiante = idEstudiante;
+	for (int i = 0; i < 4; i++)
+	{
+		ie.notas[i] = NULL;
+	}
+
+	NodoEstudiante *estudiante;
+
+	if (!enc)
+	{
+		estudiante = insertarOrdenado(cursoBuscado->info.estudiantes, ie);
+	}
+	else
+	{
+		estudiante = buscaEInsertaOrdenado(cursoBuscado->info.estudiantes, ie, enc);
+	}
+
+	agregarNodo(estudiante->info.notas[nroEvaluacion - 1], nota);
+};
+
+void procesarNovedades(string nombreArchivo, NodoCurso *&cursos)
+{
+	FILE *arch = fopen("novedades.dat", "rb");
+	novedad reg;
+
+	fread(&reg, sizeof(novedad), 1, arch);
+
 	while (!feof(arch))
 	{
-		curso *nuevo = new curso();
-		nuevo->id = aux.idCurso;
-		nuevo->estudiantes.id = aux.idEstudiante;
-		while (!feof(arch) && aux.idCurso == nuevo->id)
+		agregarNota(cursos, reg.idCurso, reg.idEstudiante, reg.nroEvaluacion, reg.nota);
+		fread(&reg, sizeof(novedad), 1, arch);
+	}
+
+	fclose(arch);
+}
+
+int getEstado(NodoNota *notas[])
+{
+	int promociona = 0;
+	int regulariza = 0;
+	int estado = 0;
+	NodoNota *aux;
+
+	for (int i = 0; i < 4; i++)
+	{
+		aux = notas[i];
+		if (aux == NULL)
 		{
-			if (cursos == NULL)
-			{
-				cursos = nuevo;
-			}
-			else
-			{
-				curso *aux = cursos;
-				while (aux->sig != NULL)
-				{
-					aux = aux->sig;
-				}
-				aux->sig = nuevo;
-			}
-			curso *nuevo = new curso();
-			nuevo->id = aux.idCurso;
-			nuevo->estudiantes.id = aux.idEstudiante;
-			fread(&aux, sizeof(aux), 1, arch);
+			estado = 3;
+			break;
+		}
+		while (aux->sgte != NULL)
+		{
+			aux = aux->sgte;
+		}
+
+		if (aux->info < 6)
+		{
+			estado = 3;
+			break;
+		}
+		else if (aux->info >= 8)
+		{
+			promociona++;
+		}
+		else
+		{
+			regulariza++;
 		}
 	}
+
+	if (estado != 3)
+	{
+		if (promociona == 4)
+		{
+			estado = 1;
+		}
+		else
+		{
+			estado = 2;
+		}
+	}
+
+	return estado;
 }
+
+void calcularEstadisiticas(NodoCurso *&cursos)
+{
+	NodoCurso *auxC = cursos;
+	NodoEstudiante *auxE;
+	int estado;
+	while (auxC != NULL)
+	{
+		auxE = auxC->info.estudiantes;
+		while (auxE != NULL)
+		{
+			estado = getEstado(auxE->info.notas);
+			switch (estado)
+			{
+			case 1:
+				auxC->info.promocionados++;
+				break;
+			case 2:
+				auxC->info.regularizados++;
+				break;
+			case 3:
+				auxC->info.recursantes++;
+				break;
+			}
+			auxE = auxE->sgte;
+		}
+		auxC = auxC->sgte;
+	}
+};
