@@ -558,7 +558,8 @@ void agregarNota(NodoCurso *&cursos, int idCurso, int idEstudiante, int nroEvalu
 
 void procesarNovedades(string nombreArchivo, NodoCurso *&cursos)
 {
-	FILE *arch = fopen("novedades.dat", "rb");
+	const char *str = nombreArchivo.c_str();
+	FILE *arch = fopen(str, "rb");
 	novedad reg;
 
 	fread(&reg, sizeof(novedad), 1, arch);

@@ -57,25 +57,30 @@ int main()
 		liberar(cursos);
 	}
 	*/
-
-	procesarNovedades("novedades.dat", cursos);
+	string file;
+	cin >> file;
+	procesarNovedades(file, cursos);
 	calcularEstadisiticas(cursos);
-	
-	NodoCurso* auxC = cursos;
-	NodoEstudiante * auxE;
-	NodoNota* auxN;
-	while(auxC != NULL){
+
+	NodoCurso *auxC = cursos;
+	NodoEstudiante *auxE;
+	NodoNota *auxN;
+	while (auxC != NULL)
+	{
 		cout << "Id Curso: " << auxC->info.idCurso << endl;
 		cout << "Cantidad de Aprobados: " << auxC->info.promocionados << endl;
 		cout << "Cantidad de Regularizados: " << auxC->info.regularizados << endl;
 		cout << "Cantidad de Recursantes: " << auxC->info.recursantes << endl;
 		auxE = auxC->info.estudiantes;
-		while(auxE != NULL){
+		while (auxE != NULL)
+		{
 			cout << "Id Estudiante: " << auxE->info.idEstudiante << endl;
-			for(int i=0; i<4; i++){
-				cout << "Instancia de Evaluacion: " << i+1 << endl;
+			for (int i = 0; i < 4; i++)
+			{
+				cout << "Instancia de Evaluacion: " << i + 1 << endl;
 				auxN = auxE->info.notas[i];
-				while(auxN != NULL){
+				while (auxN != NULL)
+				{
 					cout << "Nota: " << auxN->info << endl;
 					auxN = auxN->sgte;
 				}
