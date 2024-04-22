@@ -39,7 +39,7 @@ Este repositorio alberga una colección de trabajos prácticos en el lenguaje de
 Si deseas contribuir a este repositorio, eres bienvenido a hacerlo. Puedes abrir problemas (issues) o enviar solicitudes de extracción (pull requests) con mejoras, correcciones o nuevos trabajos prácticos.
 
 ## Licencia
-Este repositorio está bajo la licencia [AFL-3.0]. Consulta el archivo [Academic Free License v. 3.0](LICENSE.md) para obtener más detalles.
+Este repositorio está bajo la licencia AFL-3.0. Consulta el archivo [Academic Free License v. 3.0](LICENSE.md) para obtener más detalles.
 
 ## Contacto
 Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros:
