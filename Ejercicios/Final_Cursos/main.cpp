@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
 
-	// Final PromociÃ³n
+	// Final Promocion
 	// Leo el contenido
 	FILE *arch = fopen("novedades.dat", "rb");
 	novedad reg;
@@ -21,42 +21,6 @@ int main()
 	fclose(arch);
 
 	NodoCurso *cursos = NULL;
-	// Proceso los datos
-	/*
-	int opcion = -1;
-	do
-	{
-		cout << "1. Procesar novedades" << endl;
-		cout << "2. Agregar estudiante" << endl;
-		cout << "3. Agregar nota" << endl;
-		cout << "4. Calcular estadisticas" << endl;
-		cout << "0. Salir" << endl;
-		cin >> opcion;
-		switch (opcion)
-		{
-		case 1:
-			procesarNovedades("novedades.dat", cursos);
-			break;
-		case 2:
-			// agregarEstudiante(cursos);
-			break;
-		case 3:
-			// agregarNota(cursos);
-			break;
-		case 4:
-			calcularEstadisiticas(cursos);
-			break;
-		default:
-			break;
-		}
-
-	} while (opcion != 0);
-
-	if (cursos != NULL)
-	{
-		liberar(cursos);
-	}
-	*/
 	string file;
 	cin >> file;
 	procesarNovedades(file, cursos);
