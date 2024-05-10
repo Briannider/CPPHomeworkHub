@@ -377,7 +377,7 @@ int desencolar(Nodo *&colafte, Nodo *&colafin)
 //! Examen 2
 
 //* Ejercicio 1
-/*
+
 Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin){
   Nodo *lista = NULL;
   while(pila != NULL ){
@@ -389,4 +389,3 @@ Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin){
   ordenar(lista);
   return lista;
 }
-*/

@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
   // Ejercicio 1
-  /*
+
   //Definicion de datos
   Nodo* pila = NULL;
   Nodo* colafrte = NULL;
@@ -22,7 +22,7 @@ int main()
   lista = Union(pila, colafrte,colafin);
   //Impresion de datos
   mostrar(lista);
-  */
+
 
   return 0;
 }

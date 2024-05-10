@@ -44,6 +44,6 @@ int desencolar(Nodo *&colafte, Nodo *&colafin);
 
 //*Examen
 //*Ejercicio 1
-// Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin);
+Nodo *Union(Nodo*& pila, Nodo*& colafrte, Nodo*& colafin);
 
 #endif
