@@ -42,9 +42,9 @@ Si deseas contribuir a este repositorio, eres bienvenido a hacerlo. Puedes abrir
 Este repositorio está bajo la licencia AFL-3.0. Consulta el archivo [Academic Free License v. 3.0](LICENSE.md) para obtener más detalles.
 
 ## Contacto
-Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros:
+Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo:
 - braianniderhaus@gmail.com
 
-¡Esperamos que estos trabajos prácticos te ayuden a mejorar tus habilidades en C++! ¡Diviértete programando! 🚀
+¡Espero que estos trabajos prácticos te ayuden a mejorar tus habilidades en C++! ¡Diviértete programando! 🚀
 
 
