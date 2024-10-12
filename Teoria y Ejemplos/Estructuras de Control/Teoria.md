@@ -33,8 +33,8 @@ int main(){
 ##########################################################################################################
 
 
-Si se cumple la condición, osea si la condición es True, realiza el “hace esto”, si no se cumple, realiza el “hace esto otro”.
-Las condiciones pueden ser del estilo “si un número es mayor/menor/igual a otro” o simplemente “si un número es distinto a cero”. 
+Si se cumple la condición, osea si la condición es True, realiza el “Hace esto”, si no se cumple, realiza el “Hace esto otro”.
+Las condiciones pueden ser del estilo “Si un número es mayor/menor/igual a otro” o simplemente “Si un número es distinto a cero”. 
 Ejemplos:
 -Si un número es mayor a otro.
 
@@ -61,7 +61,7 @@ int a=3, b=1;
 ##########################################################################################################
 
 
-Obviamente, 3 es mayor a 1, asique va a ir por la rama del True.
+Obviamente, 3 es mayor a 1, asi que va a ir por la rama del True.
 
 -Si un número es distinto a cero. En otras palabras, si un número existe
 
