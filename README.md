@@ -1,50 +1,47 @@
-# 📂 Repositorio de Trabajos Prácticos en C++ 
+# 📂 C++ Practical Work Repository
 
-## Descripción
-Este repositorio alberga una colección de trabajos prácticos en el lenguaje de programación C++. Estos trabajos prácticos están diseñados para ayudar a los estudiantes a desarrollar sus habilidades en C++ y comprender conceptos clave de la programación.
+## Description
+This repository houses a collection of practical works in the C++ programming language. These practical works are designed to help students develop their skills in C++ and understand key programming concepts.
 
-## Contenido
+## Content
 
-### 📝 Trabajo Práctico 1: Delivery 
-- **Descripción:** Breve descripción del objetivo del trabajo práctico.
-- **Archivos:** Lista de archivos relevantes.
-- **Instrucciones:** Pasos para completar el trabajo práctico.
-- **Ejemplos:** Ejemplos de uso o soluciones.
+### 📝 Practical Work 1: Delivery
+- **Description:** Brief description of the objective of the practical work.
+- **Files:** List of relevant files.
+- **Instructions:** Steps to complete the practical work.
+- **Examples:** Usage examples or solutions.
 
-### 📝 Trabajo Práctico 2: Delivery
-- **Descripción:** El trabajo consiste en hacer la interfaz de administración del menú del delivery así como la interfaz para registrar clientes y para administrar un registro de información de los clientes.
+### 📝 Practical Work 2: Delivery
+- **Description:** The task involves creating the administration interface for the delivery menu, as well as the interface for registering clients and managing a record of client information.
 
-- **Archivos:** Lista de archivos relevantes.
-- **Instrucciones:** Pasos para completar el trabajo práctico.
-- **Ejemplos:** Ejemplos de uso o soluciones.
+- **Files:** List of relevant files.
+- **Instructions:** Steps to complete the practical work.
+- **Examples:** Usage examples or solutions.
 
-## Requisitos
--  Instalacion y configuracion de Visual Studio Code con [C++11 o superior.](https://code.visualstudio.com/docs/cpp/config-mingw)
+## Requirements
+- Installation and configuration of Visual Studio Code with [C++11 or higher.](https://code.visualstudio.com/docs/cpp/config-mingw)
 
-
-## Instrucciones para Ejecutar
-1. Clona este repositorio en tu máquina local:
+## Instructions to Run
+1. Clone this repository to your local machine:
     - git clone https://github.com/Briannider/homework.git
 
-2. Navega a la carpeta del trabajo práctico que deseas completar:
-    - cd Trabajo_Practico_1
+2. Navigate to the folder of the practical work you want to complete:
+    - cd Practical_Work_1
 
-3. Compila el código fuente:
-    - g++ -o programa programa.cpp
+3. Compile the source code:
+    - g++ -o program program.cpp
     
-4. Ejecuta el programa:
-    - ./programa
+4. Run the program:
+    - ./program
 
-## Contribuciones
-Si deseas contribuir a este repositorio, eres bienvenido a hacerlo. Puedes abrir problemas (issues) o enviar solicitudes de extracción (pull requests) con mejoras, correcciones o nuevos trabajos prácticos.
+## Contributions
+If you wish to contribute to this repository, you are welcome to do so. You can open issues or submit pull requests with improvements, corrections, or new practical works.
 
-## Licencia
-Este repositorio está bajo la licencia AFL-3.0. Consulta el archivo [Academic Free License v. 3.0](LICENSE.md) para obtener más detalles.
+## License
+This repository is under the AFL-3.0 license. See the [Academic Free License v. 3.0](LICENSE.md) file for more details.
 
-## Contacto
-Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo:
+## Contact
+If you have any questions or suggestions, feel free to contact me:
 - braianniderhaus@gmail.com
 
-¡Espero que estos trabajos prácticos te ayuden a mejorar tus habilidades en C++! ¡Diviértete programando! 🚀
-
-
+I hope these practical works help you improve your C++ skills! Have fun programming! 🚀
