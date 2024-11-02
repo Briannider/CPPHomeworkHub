@@ -45,3 +45,7 @@ If you have any questions or suggestions, feel free to contact me:
 - braianniderhaus@gmail.com
 
 I hope these practical works help you improve your C++ skills! Have fun programming! 🚀
+
+"If you can dream it, you can code it!"
+
+
