@@ -257,6 +257,7 @@ void MaxRecaudacion(regSuc suc1[], regSuc suc2[], int n){
 */
 
 // *! Cuarto Punto
+/*
 void mostrarpromedio(regNotas Materias[][10], int filas, int columnas)
 {
   float sum = 0;
@@ -377,3 +378,4 @@ void mostraraprobados()
   }
   fclose(F);
 }
+*/
