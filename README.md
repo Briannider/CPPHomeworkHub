@@ -12,7 +12,7 @@ This repository houses a collection of practical works in the C++ programming la
 - **Examples:** Usage examples or solutions.
 
 ### 📝 Practical Work 2: Delivery
-- **Description:** The task involves creating the administration interface for the delivery menu, as well as the interface for registering clients and managing a record of client information.
+- **Description:** The task involves creating the administration interface for the delivery menu
 
 - **Files:** List of relevant files.
 - **Instructions:** Steps to complete the practical work.
