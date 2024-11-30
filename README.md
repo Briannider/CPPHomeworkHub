@@ -1,4 +1,4 @@
-# 📂 C++ Practical Work Repository
+# 📂 C++ Practical Works
 
 ## Description
 This repository houses a collection of practical works in the C++ programming language. These practical works are designed to help students develop their skills in C++ and understand key programming concepts.
