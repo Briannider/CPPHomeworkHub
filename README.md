@@ -11,9 +11,6 @@ This repository houses a collection of practical works in the C++ programming la
 - **Instructions:** Steps to complete the practical work.
 - **Examples:** Usage examples or solutions.
 
-### 📝 Practical Work 2: Delivery
-- **Description:** The task involves creating the administration interface for the delivery menu
-
 - **Files:** List of relevant files.
 - **Instructions:** Steps to complete the practical work.
 - **Examples:** Usage examples or solutions.
