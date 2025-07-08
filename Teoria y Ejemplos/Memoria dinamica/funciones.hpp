@@ -1,25 +1,25 @@
 #include <string>
 using namespace std;
 
-struct info
+struct inf
 {
     int id;
-    string nombre;
-    string apellido;
-    int edad;
+    string firstname;
+    string lastname;
+    int age;
     int dni;
 };
-struct NodoPersona
+struct NodePerson
 {
-    info dato;
-    NodoPersona *sgte;
-    NodoPersona *ant;
+    inf data;
+    NodePerson *next;
+    NodePerson *prev;
 };
 
 #ifndef funciones
 #define funciones
 // Listas
-void agregarNodo(NodoPersona *&persona, info x);
-void mostrar(NodoPersona *persona);
-void liberar(NodoPersona *&persona);
+void agregarNodo(NodePerson *&persona, inf x);
+void mostrar(NodePerson *person);
+void liberar(NodePerson *&person);
 #endif
