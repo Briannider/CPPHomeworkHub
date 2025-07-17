@@ -2,28 +2,12 @@
 #include <iostream>
 using namespace std;
 
-void insertAtBeginning(Node *&head, int value)
-{
-    Node *newNode = new Node{value, head};
-    head = newNode;
-}
+bool EsPrimo(int num){
+    if(num<=1)return false; //! 1 y 0 no son primos
 
-void printList(Node *head)
-{
-    while (head != nullptr)
-    {
-        cout << head->data << " -> ";
-        head = head->next;
+    for(int i = 2; i<=num/2; i++){
+        if (num % i == 0) return false; //! tiene un divisor → no es primo
     }
-    cout << "NULL" << endl;
-}
 
-void freeList(Node *&head)
-{
-    while (head != nullptr)
-    {
-        Node *temp = head;
-        head = head->next;
-        delete temp;
-    }
+    return true; //! No encontro primos
 }

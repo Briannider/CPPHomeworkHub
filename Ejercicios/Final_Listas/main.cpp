@@ -3,15 +3,15 @@
 using namespace std;
 
 int main()
-{
-    Node *list = nullptr;
-
-    insertAtBeginning(list, 10);
-    insertAtBeginning(list, 20);
-    insertAtBeginning(list, 30);
-
-    printList(list);
-
-    freeList(list);
+{   
+    int num;
+    cout<<"Ingrese el numero primo "<<endl;
+    cin>>num;
+    if(EsPrimo(num)){
+        cout<<"Es primo"<<endl;
+    }else{
+        cout<<"No es primo"<<endl;
+    }
+    
     return 0;
 }
