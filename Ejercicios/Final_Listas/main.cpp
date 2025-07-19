@@ -14,7 +14,7 @@ int main()
         cout<<"Is not prime"<<endl;
     }
     */
-    
+    /*
     int even = 0;
     int maxeven = 0;
     // Generate a vector of 50 random numbers between 1 and 100
@@ -40,6 +40,22 @@ int main()
     }
     cout << "Maximum even number: "<< maxeven <<endl;
 
+
+    */
+
+    Node* list = nullptr; // Initialize the linked list
+    int value;
+    cout<<"Input 5 numbers: "<<endl;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> value;
+        insertAtBeginning(list, value);
+        cout << "Inserted: " << list->value << endl;
+    }
+    showList(list);
+    freeList(list); // Free the linked list memory
+    cout << "List freed." << endl;
+    
 
     return 0;
 }
